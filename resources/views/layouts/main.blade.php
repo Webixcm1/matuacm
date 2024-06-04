@@ -104,7 +104,7 @@
                             aria-labelledby="profileDropdown">
                             <!-- Links -->
                             <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
-                            <li><a class="dropdown-item" href="#">Connexion</a></li>
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Connexion</a></li>
                         </ul>
                     </li>
                     <!-- Profile dropdown END -->
