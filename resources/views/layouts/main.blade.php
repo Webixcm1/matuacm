@@ -82,7 +82,7 @@
                         <li class="nav-item"> <a class="nav-link" href="#">Service Routier</a> </li>
 
                         <!-- Nav item Cabs -->
-                        <li class="nav-item"> <a class="nav-link" href="#">Contact</a></li>
+                        <li class="nav-item"> <a class="nav-link {{ Request::path() == 'contact' ? 'active' : '' }}" href="{{ route('contact.index') }}">Contact</a></li>
                     </ul>
                 </div>
                 <!-- Main navbar END -->
