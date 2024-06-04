@@ -103,7 +103,7 @@
                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
                             aria-labelledby="profileDropdown">
                             <!-- Links -->
-                            <li><a class="dropdown-item" href="#">Inscription</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
                             <li><a class="dropdown-item" href="#">Connexion</a></li>
                         </ul>
                     </li>
