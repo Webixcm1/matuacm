@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
 //HOME ROUTE
@@ -16,3 +17,4 @@ Route::get('contact', [ContactController::class, 'index'])->name('contact.index'
 //AUTHENTIFICATION ROUTE
 Route::get('register', [RegisterController::class, 'index'])->name('register');
 Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('reset', [ResetPassword::class, 'index'])->name('reset');
