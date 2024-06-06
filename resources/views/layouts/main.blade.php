@@ -116,7 +116,7 @@
                                 <!-- Links for authenticated users -->
                                 <li><a class="dropdown-item" href="#">Dashboard</a></li>
                                 <li>
-                                    <form method="POST" action="#">
+                                    <form method="POST" action="{{ route('logout') }}">
                                         @csrf
                                         <button type="submit" class="dropdown-item">Déconnexion</button>
                                     </form>
