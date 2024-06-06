@@ -14,14 +14,14 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('nom')->unique();
-            $table->string('prenom');
-            $table->string('telephone');
+            $table->string('nom')->unique()->nullable();
+            $table->string('prenom')->nullable();
+            $table->string('telephone')->unique()->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->enum('type', UserType::allCaseInStr())->default('conducteur')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->boolean('is_blocked')->default(0)->nullable();// 0 for false and 1 for true
             $table->timestamps();
