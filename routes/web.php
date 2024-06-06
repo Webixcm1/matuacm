@@ -18,8 +18,15 @@ Route::get('about', [AboutController::class, 'index'])->name('about');
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('contact', [ContactController::class, 'sendMessage'])->name('contact.store');
 
+//REGISTER ROUTE
+Route::controller(RegisterController::class)->group(function () {
+    Route::get('register', 'index')->name('register');
+    Route::post('register', 'register')->name('register.store');
+});
 
-//AUTHENTIFICATION ROUTE
-Route::get('register', [RegisterController::class, 'index'])->name('register');
-Route::get('login', [LoginController::class, 'index'])->name('login');
-Route::get('reset', [ResetPassword::class, 'index'])->name('reset');
+//LOGIN ROUTE
+Route::controller(LoginController::class)->group(function () {
+    Route::get('login', 'index')->name('login');
+    // Route::post('login', 'login')->name('login.store');
+    // Route::get('logout', 'logout')->name('logout');
+});

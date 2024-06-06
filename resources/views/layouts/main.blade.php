@@ -41,8 +41,8 @@
             <div class="container">
                 <!-- Logo START -->
                 <a class="navbar-brand" href="{{ route('index') }}">
-                    {{-- <img class="light-mode-item navbar-brand-item" src="{{ asset('assets/images/logo.svg') }}"
-                        alt="logo"> --}}
+                    <img class="light-mode-item navbar-brand-item h-200px" src="{{ asset('assets/images/logo.png') }}"
+                        alt="logo">
                 </a>
                 <!-- Logo END -->
 
@@ -74,7 +74,8 @@
                                 href="{{ route('index') }}">Accueil</a> </li>
 
                         <!-- Nav item-->
-                        <li class="nav-item"> <a class="nav-link {{ Request::path() == 'about' ? 'active' : '' }}" href="{{ route('about') }}">A Propos</a> </li>
+                        <li class="nav-item"> <a class="nav-link {{ Request::path() == 'about' ? 'active' : '' }}"
+                                href="{{ route('about') }}">A Propos</a> </li>
 
                         <!-- Nav item -->
                         <li class="nav-item"> <a class="nav-link" href="#">Covoiturage</a> </li>
@@ -98,19 +99,38 @@
                         <a class="avatar avatar-sm p-2" href="#" id="profileDropdown" role="button"
                             data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            {{-- <img class="avatar-img rounded-2" src="assets/images/avatar/01.jpg" alt="avatar"> --}}
-                            <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
+                            @auth
+                                <div>
+                                    <img class="avatar-img rounded-circle shadow" src="{{ asset('users/' . Auth::user()->avatar) }}"
+                                        alt="avatar">
+                                </div>
+                            @else
+                                <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
+                            @endauth
                         </a>
 
                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
                             aria-labelledby="profileDropdown">
-                            <!-- Links -->
-                            <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Connexion</a></li>
+                            <!-- Check if the user is authenticated -->
+                            @auth
+                                <!-- Links for authenticated users -->
+                                <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                                <li>
+                                    <form method="POST" action="#">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Déconnexion</button>
+                                    </form>
+                                </li>
+                            @else
+                                <!-- Links for guests -->
+                                <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
+                                <li><a class="dropdown-item" href="{{ route('login') }}">Connexion</a></li>
+                            @endauth
                         </ul>
                     </li>
                     <!-- Profile dropdown END -->
                 </ul>
+
                 <!-- Profile and Notification START -->
 
             </div>
@@ -160,7 +180,8 @@ Footer START -->
                             <ul class="nav flex-column text-primary-hover">
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="{{ route('index') }}">Accueil</a></li>
-                                <li class="nav-item"><a class="nav-link text-body-secondary" href="{{ route('about') }}">A
+                                <li class="nav-item"><a class="nav-link text-body-secondary"
+                                        href="{{ route('about') }}">A
                                         Propos</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="#">Covoiturage</a></li>
