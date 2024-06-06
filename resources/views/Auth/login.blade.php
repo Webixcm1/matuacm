@@ -3,7 +3,7 @@
 
 <!-- Mirrored from booking.webestica.com/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Apr 2024 10:41:43 GMT -->
 <head>
-	<title>Booking - Multipurpose Online Booking Theme</title>
+	<title>Matuacm ::  Connexion</title>
 
 	<!-- Meta Tags -->
 	<meta charset="utf-8">
@@ -54,7 +54,7 @@ Main Content START -->
 						<div class="col-lg-6 order-1">
 							<div class="p-4 p-sm-7">
 								<!-- Logo -->
-								<a href="index.html">
+								<a href="{{ route('index') }}">
 									<img class="h-50px mb-4" src="{{asset('assets/images/logo-icon.svg')}}" alt="logo">
 								</a>
 								<!-- Title -->

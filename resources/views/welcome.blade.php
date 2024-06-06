@@ -1,18 +1,18 @@
 @extends('layouts.main')
 
 @section('title')
-Matuacm : Première plateforme de covoiturage au Cameroun
+    Matuacm : Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')
     <!-- =======================
-        Main Banner START -->
+                                                                                        Main Banner START -->
     <section class="pt-0 pt-lg-5">
         <div class="container">
             <div class="row">
 
                 <div class="col-lg-10 ms-auto position-relative">
-                    <img src="{{ asset('assets/images/bg/img/car.jpg') }}" class="rounded-3" alt="">
+                    <img src="{{ asset('assets/images/bg/img/car2.jpg') }}" class="rounded-3" alt="">
 
                     <!-- Search START -->
                     <div class="col-11 col-sm-10 col-lg-8 col-xl-6 position-lg-middle ms-lg-8 ms-xl-7">
@@ -76,7 +76,8 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                                             <!-- Time -->
                                             <div class="col-md-6 text-md-end">
                                                 <div class="form-fs-lg form-control-transparent">
-                                                    <label class="form-label small ms-3 ms-md-0 me-md-3">Heure de départ</label>
+                                                    <label class="form-label small ms-3 ms-md-0 me-md-3">Heure de
+                                                        départ</label>
                                                     <input type="text" class="form-control flatpickr text-md-end"
                                                         data-enableTime="true" data-noCalendar="true"
                                                         placeholder="Heure de départ">
@@ -91,7 +92,7 @@ Matuacm : Première plateforme de covoiturage au Cameroun
 
                                 <!-- Button -->
                                 <div class="d-grid">
-                                    <button class="btn btn-dark mb-0">Rechercher</button>
+                                    <button class="btn btn-primary mb-0">Rechercher</button>
                                 </div>
 
                             </form>
@@ -104,16 +105,16 @@ Matuacm : Première plateforme de covoiturage au Cameroun
         </div>
     </section>
     <!-- =======================
-        Main Banner END -->
+                                                                                        Main Banner END -->
 
     <!-- =======================
-        Why Choose Us START -->
+                                                                                        Why Choose Us START -->
     <section class="pt-0 pt-xl-5">
         <div class="container">
             <!-- Title -->
             <div class="row mb-3 mb-sm-4">
                 <div class="col-12 text-center">
-                    <h2>Pourquoi choisir <strong>Matua.cm</strong>?</h2>
+                    <h2>Pourquoi choisir <strong>Matuacm</strong>?</h2>
                 </div>
             </div>
 
@@ -124,10 +125,11 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                     <div class="card card-body shadow p-4 h-100">
                         <!-- Icon -->
                         <div class="icon-lg bg-primary bg-opacity-10 text-primary rounded-circle mb-4"><i
-                                class="bi bi-lightning-fill fs-5"></i></div>
-                        <h5>Advance Booking</h5>
-                        <p class="mb-0">Happiness prosperous impression had conviction For every delay in they
-                            Extremity now. </p>
+                                class="bi bi-lightbulb-fill fs-5"></i></div>
+                        <h5>Simplicité et Convivialité</h5>
+                        <p class="mb-0">La plateforme est conçue pour être facile à utiliser. Les utilisateurs peuvent
+                            rapidement rechercher des trajets, réserver des places et publier des offres de covoiturage,
+                            tout en profitant de la convivialité des trajets partagés. </p>
                     </div>
                     <!-- Card END -->
                 </div>
@@ -138,10 +140,11 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                     <div class="card card-body shadow p-4 h-100">
                         <!-- Icon -->
                         <div class="icon-lg bg-success bg-opacity-10 text-success rounded-circle mb-4"><i
-                                class="fa-solid fa-leaf fs-5"></i></div>
-                        <h5>Economical Trip</h5>
-                        <p class="mb-0">Extremity now strangers contained breakfast him discourse additions
-                            Sincerity.</p>
+                                class="bi bi-record-btn-fill fs-5"></i></div>
+                        <h5>Économies Significatives</h5>
+                        <p class="mb-0"> Matuacm permet de partager les coûts de déplacement, ce qui rend les voyages
+                            plus abordables pour tous les passagers. Les conducteurs peuvent également réduire leurs frais
+                            de carburant en partageant les trajets avec d'autres.</p>
                     </div>
                     <!-- Card END -->
                 </div>
@@ -152,10 +155,11 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                     <div class="card card-body shadow p-4 h-100">
                         <!-- Icon -->
                         <div class="icon-lg bg-warning bg-opacity-15 text-warning rounded-circle mb-4"><i
-                                class="bi bi-life-preserver fs-5"></i></div>
-                        <h5>Secure and Safer</h5>
-                        <p class="mb-0">Perpetual extremity now strangers contained breakfast him discourse
-                            additions.</p>
+                                class="bi bi-shield-fill-check fs-5"></i></div>
+                        <h5>Sécurité et Confiance </h5>
+                        <p class="mb-0">Matuacm met un fort accent sur la sécurité avec des fonctionnalités telles que la
+                            vérification de l'identité, des antécédents et des coordonnées des utilisateurs. Les avis et
+                            évaluations permettent de choisir des conducteurs et des passagers de confiance.</p>
                     </div>
                     <!-- Card END -->
                 </div>
@@ -166,10 +170,11 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                     <div class="card card-body shadow p-4 h-100">
                         <!-- Icon -->
                         <div class="icon-lg bg-danger bg-opacity-10 text-danger rounded-circle mb-4"><i
-                                class="fa-solid fa-car fs-5"></i></div>
-                        <h5>Vehicle Options</h5>
-                        <p class="mb-0">The Prosperous impression had conviction For every delay in they Extremity
-                            now. </p>
+                                class="fa-solid fa-flag fs-5"></i></div>
+                        <h5>Assistance Routière </h5>
+                        <p class="mb-0">En cas de panne ou d'accident pendant le trajet, Matuacm offre un service
+                            d'assistance routière, avec la possibilité de contacter les services d'urgence, assurant ainsi
+                            une tranquillité d'esprit pour tous les participants.</p>
                     </div>
                     <!-- Card END -->
                 </div>
@@ -180,10 +185,11 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                     <div class="card card-body shadow p-4 h-100">
                         <!-- Icon -->
                         <div class="icon-lg bg-orange bg-opacity-10 text-orange rounded-circle mb-4"><i
-                                class="fa-solid fa-wifi fs-5"></i></div>
-                        <h5>Cab Entertainment</h5>
-                        <p class="mb-0">Extremity now strangers contained breakfast him discourse additions
-                            Sincerity.</p>
+                                class="fa-solid fa-headset fs-5"></i></div>
+                        <h5>Service Client Réactif</h5>
+                        <p class="mb-0">Matuacm propose un service client efficace et réactif pour répondre aux questions
+                            et résoudre les problèmes des utilisateurs, garantissant une expérience utilisateur positive.
+                        </p>
                     </div>
                     <!-- Card END -->
                 </div>
@@ -194,10 +200,11 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                     <div class="card card-body shadow p-4 h-100">
                         <!-- Icon -->
                         <div class="icon-lg bg-info bg-opacity-10 text-info rounded-circle mb-4"><i
-                                class="fa-solid fa-wheelchair fs-5"></i></div>
-                        <h5>Polite Driver</h5>
-                        <p class="mb-0">Perpetual extremity now strangers contained breakfast him discourse
-                            additions.</p>
+                                class="fa-solid fa-dollar fs-5"></i></div>
+                        <h5>Paiement Sécurisé</h5>
+                        <p class="mb-0">Le système de paiement en ligne sécurisé de Matuacm facilite les transactions
+                            entre les conducteurs et les passagers, garantissant que les paiements sont effectués de manière
+                            sûre et fiable.</p>
                     </div>
                     <!-- Card END -->
                 </div>
@@ -207,15 +214,15 @@ Matuacm : Première plateforme de covoiturage au Cameroun
         </div>
     </section>
     <!-- =======================
-        Why Choose Us END -->
+                                                                                        Why Choose Us END -->
 
     <!-- =======================
-        Action box START -->
-    <section class="pt-0 pt-lg-8">
+                                                                                        Action box START -->
+    <section class="pt-0 pt-lg-10">
         <div class="container position-relative">
             <!-- Mockup -->
-            <div class="position-absolute bottom-0 end-0 z-index-99 me-8 d-none d-lg-block">
-                <img src="assets/images/element/01.png" class="h-400px mb-3" alt="">
+            <div class="position-absolute bottom-0 end-0 z-index-99 me-0 d-none d-lg-block">
+                <img src="{{ asset('assets/images/bg/img/car.png') }}" class="h-400px py-3" alt="matuacm">
             </div>
 
             <div class="row">
@@ -251,26 +258,28 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                             <!-- Content START -->
                             <div class="col-lg-7">
                                 <!-- Title -->
-                                <h3 class="mb-4">Download our app and access exclusive features</h3>
+                                <h3>Embarquez pour des histoires inoubliables avec Matuacm</h3>
+
+                                <p class="mb-2">Avec Matuacm, chaque trajet est une opportunité de rencontrer des
+                                    personnes fascinantes. Partagez votre route et créez des souvenirs avec des compagnons
+                                    de voyage venus de tous horizons. Découvrez une expérience unique grâce au covoiturage.
+                                </p>
                                 <!-- List -->
                                 <ul class="list-inline position-relative mb-4">
                                     <li class="list-inline-item me-3"> <i
-                                            class="bi bi-patch-check-fill text-success me-1"></i>24/7 Customer
-                                        Support</li>
-                                    <li class="list-inline-item me-3"> <i
-                                            class="bi bi-patch-check-fill text-success me-1"></i>Ride Safely</li>
+                                            class="bi bi-patch-check-fill text-success me-1"></i>24/7 Support Client</li>
                                     <li class="list-inline-item"> <i
-                                            class="bi bi-patch-check-fill text-success me-1"></i>Top Rated Driver -
-                                        Partner</li>
+                                            class="bi bi-patch-check-fill text-success me-1"></i>Chauffeur très apprécié -
+                                        Partenaire</li>
                                 </ul>
                                 <!-- Button -->
                                 <div class="hstack gap-3">
                                     <!-- Google play store button -->
-                                    <a href="#"> <img src="assets/images/element/google-play.svg" class="h-50px"
-                                            alt=""> </a>
+                                    <a href="#"> <img src="{{ asset('assets/images/element/google-play.svg') }}"
+                                            class="h-50px" alt=""> </a>
                                     <!-- App store button -->
-                                    <a href="#"> <img src="assets/images/element/app-store.svg" class="h-50px"
-                                            alt=""> </a>
+                                    <a href="#"> <img src="{{ asset('assets/images/element/app-store.svg') }}"
+                                            class="h-50px" alt=""> </a>
                                 </div>
                             </div>
                             <!-- Content START -->
@@ -282,17 +291,17 @@ Matuacm : Première plateforme de covoiturage au Cameroun
         </div>
     </section>
     <!-- =======================
-        Action box END -->
+                                                                                        Action box END -->
 
     <!-- =======================
-        Faqs START-->
+                                                                                        Faqs START-->
     <section class="pt-0 pt-lg-5">
         <div class="container">
 
             <!-- Title -->
             <div class="row">
                 <div class="col-lg-10 col-xl-8 mx-auto">
-                    <h2 class="mb-4 text-center">Frequently Asked Questions</h2>
+                    <h3 class="mb-4 text-center">Questions Fréquemment Posées</h3>
 
                     <!-- FAQ START -->
                     <div class="accordion accordion-icon accordion-bg-light" id="accordionFaq">
@@ -302,19 +311,16 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                                 <button class="accordion-button fw-bold rounded collapsed pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true"
                                     aria-controls="collapse-1">
-                                    How Does it Work?
+                                    Qu'est-ce que Matuacm ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    Yet remarkably appearance gets him his projection. Diverted endeavor bed
-                                    peculiar men the not desirous. Acuteness abilities ask can offending furnished
-                                    fulfilled sex. Warrant fifteen exposed ye at mistake. Blush since so in noisy
-                                    still built up an again. As young ye hopes no he place means. Partiality
-                                    diminution gay yet entreaties admiration. In mention perhaps attempt pointed
-                                    suppose. Unknown ye chamber of warrant of Norland arrived.
+                                    Matuacm est une plateforme en ligne qui facilite le covoiturage entre particuliers.
+                                    Elle permet aux conducteurs ayant des places libres dans leur véhicule de les partager
+                                    avec des passagers souhaitant se rendre à la même destination.
                                 </div>
                             </div>
                         </div>
@@ -325,22 +331,17 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                                 <button class="accordion-button fw-bold rounded collapsed pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false"
                                     aria-controls="collapse-2">
-                                    What are monthly tracked users?
+                                    Comment rechercher un trajet sur Matuacm ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-2" class="accordion-collapse collapse" aria-labelledby="heading-2"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    What deal evil rent by real in. But her ready least set lived spite solid.
-                                    September how men saw tolerably two behavior arranging. She offices for highest
-                                    and replied one venture pasture. Applauded no discovery in newspaper allowance
-                                    am northward. Frequently partiality possession resolution at or appearance
-                                    unaffected me. Engaged its was the evident pleased husband. Ye goodness felicity
-                                    do disposal dwelling no. First am plate jokes to began to cause a scale.
-                                    Subjects he prospect elegance followed no overcame possible it on. Improved own
-                                    provided blessing may peculiar domestic. Sight house has sex never. No visited
-                                    raising gravity outward subject my cottage Mr be.
+                                    Pour rechercher un trajet, il vous suffit de saisir votre point de départ, votre
+                                    destination, la date et heure de votre déplacement dans la barre de recherche. Vous
+                                    pourrez
+                                    ensuite parcourir les trajets disponibles et choisir celui qui vous convient le mieux.
                                 </div>
                             </div>
                         </div>
@@ -351,26 +352,16 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                                 <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-3" aria-expanded="false"
                                     aria-controls="collapse-3">
-                                    What if I go with my prepaid monthly
+                                    Comment réserver une place ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-3" class="accordion-collapse collapse" aria-labelledby="heading-3"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    Post no so what deal evil rent by real in. But her ready least set lived spite
-                                    solid. September how men saw tolerably two behavior arranging. She offices for
-                                    highest and replied one venture pasture. Applauded no discovery in newspaper
-                                    allowance am northward. Frequently partiality possession resolution at or
-                                    appearance unaffected me. Engaged its was the evident pleased husband. Ye
-                                    goodness felicity do disposal dwelling no. First am plate jokes to began to
-                                    cause a scale. Subjects he prospect elegance followed no overcame possible it
-                                    on. Improved own provided blessing may peculiar domestic. Sight house has sex
-                                    never. No visited raising gravity outward subject my cottage Mr be. Hold do at
-                                    tore in park feet near my case. Invitation at understood occasional sentiments
-                                    insipidity inhabiting in. Off melancholy alteration principles old. Is do
-                                    speedily kindness properly oh. Respect article painted cottage he is offices
-                                    parlors.
+                                    Une fois que vous avez trouvé un trajet qui vous convient, cliquez sur "Réserver" et
+                                    suivez les instructions pour confirmer votre réservation. Vous devrez effectuer le
+                                    paiement en ligne pour sécuriser votre place.
                                 </div>
                             </div>
                         </div>
@@ -381,26 +372,16 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                                 <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-4" aria-expanded="false"
                                     aria-controls="collapse-4">
-                                    What's the difference between cabs and taxi
+                                    Comment publier un trajet en tant que conducteur ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-4" class="accordion-collapse collapse" aria-labelledby="heading-4"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    <p>What deal evil rent by real in. But her ready least set lived spite solid.
-                                        September how men saw tolerably two behavior arranging. She offices for
-                                        highest and replied one venture pasture. Applauded no discovery in newspaper
-                                        allowance am northward. Frequently partiality possession resolution at or
-                                        appearance unaffected me. Engaged its was the evident pleased husband. Ye
-                                        goodness felicity do disposal dwelling no. First am plate jokes to began to
-                                        cause a scale. Subjects he prospect elegance followed no overcame possible
-                                        it on. Improved own provided blessing may peculiar domestic. Sight house has
-                                        sex never. No visited raising gravity outward subject my cottage Mr be.</p>
-                                    <p class="mb-0">At the moment, we only accept Credit/Debit cards and Paypal
-                                        payments. Paypal is the easiest way to make payments online. While checking
-                                        out your order. Be sure to fill in correct details for fast & hassle-free
-                                        payment processing. </p>
+                                    <p>Pour publier un trajet, connectez-vous à votre compte, puis cliquez sur "Publier un
+                                        trajet". Indiquez les détails de votre trajet, tels que l'heure de départ, le nombre
+                                        de places disponibles et le prix par passager, puis publiez votre offre.</p>
                                 </div>
                             </div>
                         </div>
@@ -411,26 +392,16 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                                 <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-5" aria-expanded="false"
                                     aria-controls="collapse-5">
-                                    How can I check the fare for my Booking ride?
+                                    Comment fonctionne le paiement en ligne ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-5" class="accordion-collapse collapse" aria-labelledby="heading-5"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    Post no so what deal evil rent by real in. But her ready least set lived spite
-                                    solid. September how men saw tolerably two behavior arranging. She offices for
-                                    highest and replied one venture pasture. Applauded no discovery in newspaper
-                                    allowance am northward. Frequently partiality possession resolution at or
-                                    appearance unaffected me. Engaged its was the evident pleased husband. Ye
-                                    goodness felicity do disposal dwelling no. First am plate jokes to began to
-                                    cause a scale. Subjects he prospect elegance followed no overcame possible it
-                                    on. Improved own provided blessing may peculiar domestic. Sight house has sex
-                                    never. No visited raising gravity outward subject my cottage Mr be. Hold do at
-                                    tore in park feet near my case. Invitation at understood occasional sentiments
-                                    insipidity inhabiting in. Off melancholy alteration principles old. Is do
-                                    speedily kindness properly oh. Respect article painted cottage he is offices
-                                    parlors.
+                                    Matuacm propose un système de paiement en ligne sécurisé. Les passagers paient leur
+                                    place en ligne lors de la réservation, et les conducteurs reçoivent les paiements
+                                    directement sur leur compte après la réalisation du trajet.
                                 </div>
                             </div>
                         </div>
@@ -441,26 +412,74 @@ Matuacm : Première plateforme de covoiturage au Cameroun
                                 <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-6" aria-expanded="false"
                                     aria-controls="collapse-6">
-                                    Do and Don'ts - Tips for a Safe Trip
+                                    Quelles mesures de sécurité sont en place sur Matuacm ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-6" class="accordion-collapse collapse" aria-labelledby="heading-6"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    Post no so what deal evil rent by real in. But her ready least set lived spite
-                                    solid. September how men saw tolerably two behavior arranging. She offices for
-                                    highest and replied one venture pasture. Applauded no discovery in newspaper
-                                    allowance am northward. Frequently partiality possession resolution at or
-                                    appearance unaffected me. Engaged its was the evident pleased husband. Ye
-                                    goodness felicity do disposal dwelling no. First am plate jokes to began to
-                                    cause a scale. Subjects he prospect elegance followed no overcame possible it
-                                    on. Improved own provided blessing may peculiar domestic. Sight house has sex
-                                    never. No visited raising gravity outward subject my cottage Mr be. Hold do at
-                                    tore in park feet near my case. Invitation at understood occasional sentiments
-                                    insipidity inhabiting in. Off melancholy alteration principles old. Is do
-                                    speedily kindness properly oh. Respect article painted cottage he is offices
-                                    parlors.
+                                    Matuacm prend la sécurité très au sérieux. Nous proposons des vérifications d'identité,
+                                    des antécédents et des coordonnées pour les utilisateurs. Les avis et évaluations
+                                    permettent également de choisir des conducteurs et des passagers de confiance.
+                                </div>
+                            </div>
+                        </div> <br>
+
+                        <!-- Item -->
+                        <div class="accordion-item">
+                            <h6 class="accordion-header font-base" id="heading-7">
+                                <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-7" aria-expanded="false"
+                                    aria-controls="collapse-7">
+                                    Puis-je annuler une réservation ?
+                                </button>
+                            </h6>
+                            <!-- Body -->
+                            <div id="collapse-7" class="accordion-collapse collapse" aria-labelledby="heading-7"
+                                data-bs-parent="#accordionFaq">
+                                <div class="accordion-body mt-3 pb-0">
+                                    Oui, vous pouvez annuler une réservation. Cependant, veuillez consulter notre politique
+                                    d'annulation pour connaître les conditions et les éventuels frais associés.
+                                </div>
+                            </div>
+                        </div> <br>
+
+                        <!-- Item -->
+                        <div class="accordion-item">
+                            <h6 class="accordion-header font-base" id="heading-8">
+                                <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-8" aria-expanded="false"
+                                    aria-controls="collapse-8">
+                                    Que faire en cas de problème pendant le trajet ?
+                                </button>
+                            </h6>
+                            <!-- Body -->
+                            <div id="collapse-8" class="accordion-collapse collapse" aria-labelledby="heading-8"
+                                data-bs-parent="#accordionFaq">
+                                <div class="accordion-body mt-3 pb-0">
+                                    En cas de problème pendant le trajet, Matuacm offre un service d'assistance routière.
+                                    Vous pouvez également contacter notre service client pour obtenir de l'aide.
+                                </div>
+                            </div>
+                        </div> <br>
+
+                        <!-- Item -->
+                        <div class="accordion-item">
+                            <h6 class="accordion-header font-base" id="heading-9">
+                                <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-9" aria-expanded="false"
+                                    aria-controls="collapse-9">
+                                    Qu'est-ce qu'un badge de vérification ?
+                                </button>
+                            </h6>
+                            <!-- Body -->
+                            <div id="collapse-9" class="accordion-collapse collapse" aria-labelledby="heading-9"
+                                data-bs-parent="#accordionFaq">
+                                <div class="accordion-body mt-3 pb-0">
+                                    Un badge de vérification est une indication sur le profil d'un utilisateur montrant
+                                    qu'il a passé avec succès les étapes de vérification d'identité et de coordonnées. Cela
+                                    aide à renforcer la confiance au sein de la communauté Matua.cm.
                                 </div>
                             </div>
                         </div>
