@@ -74,7 +74,7 @@
                                 href="{{ route('index') }}">Accueil</a> </li>
 
                         <!-- Nav item-->
-                        <li class="nav-item"> <a class="nav-link" href="#">A Propos</a> </li>
+                        <li class="nav-item"> <a class="nav-link {{ Request::path() == 'about' ? 'active' : '' }}" href="{{ route('about') }}">A Propos</a> </li>
 
                         <!-- Nav item -->
                         <li class="nav-item"> <a class="nav-link" href="#">Covoiturage</a> </li>
@@ -160,12 +160,12 @@ Footer START -->
                             <ul class="nav flex-column text-primary-hover">
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="{{ route('index') }}">Accueil</a></li>
-                                <li class="nav-item"><a class="nav-link text-body-secondary" href="#">A
+                                <li class="nav-item"><a class="nav-link text-body-secondary" href="{{ route('about') }}">A
                                         Propos</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="#">Covoiturage</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Contact</a></li>
+                                        href="{{ route('contact.index') }}">Contact</a></li>
                             </ul>
                         </div>
 
