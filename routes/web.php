@@ -12,6 +12,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 
 //CONTACT PAGE ROUTE
 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('contact', [ContactController::class, 'sendMessage'])->name('contact.store');
 
 
 //AUTHENTIFICATION ROUTE
