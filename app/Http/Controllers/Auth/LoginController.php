@@ -44,8 +44,19 @@ class LoginController extends Controller
         try {
             // Tentative de connexion de l'utilisateur
             if (Auth::attempt($credentials)) {
-                return redirect()->route('index')->with('success', 'Connexion réussie.');
+                $user = Auth::user();
+            
+                if ($user->type === 'conducteur') {
+                    return redirect()->route('home')->with('success', 'Connexion réussie en tant que conducteur.');
+                } elseif ($user->type === 'passager') {
+                    return redirect()->route('index')->with('success', 'Connexion réussie en tant que passager.');
+                }
             }
+            
+            return back()->withInput($request->only('login', 'remember'))->withErrors([
+                'login' => 'Les identifiants sont incorrects.',
+            ]);
+            
 
             // Si les identifiants sont incorrects, retourner avec une erreur de validation
             throw ValidationException::withMessages([

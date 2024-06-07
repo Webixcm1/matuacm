@@ -1,12 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\HomeController;
-use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Drive\AccueilController;
 
 //HOME ROUTE
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -28,5 +28,11 @@ Route::controller(RegisterController::class)->group(function () {
 Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login', 'login')->name('login.store');
-    Route::post('logout', 'logout')->name('logout');
+});
+
+Route::middleware('auth')->group(function (){
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+    //DRIVE ROUTE
+    Route::get('home', [AccueilController::class, 'index'])->name('home');
 });

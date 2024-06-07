@@ -29,6 +29,8 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
+    @stack('css')
+
 
 </head>
 
@@ -101,8 +103,8 @@
                             aria-expanded="false">
                             @auth
                                 <div>
-                                    <img class="avatar-img rounded-circle shadow" src="{{ asset('users/' . Auth::user()->avatar) }}"
-                                        alt="avatar">
+                                    <img class="avatar-img rounded-circle shadow"
+                                        src="{{ asset('users/' . Auth::user()->avatar) }}" alt="avatar">
                                 </div>
                             @else
                                 <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
@@ -111,10 +113,15 @@
 
                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
                             aria-labelledby="profileDropdown">
-                            <!-- Check if the user is authenticated -->
+                            <!-- Vérifiez si l'utilisateur est authentifié -->
                             @auth
-                                <!-- Links for authenticated users -->
-                                <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                                <!-- Liens pour les utilisateurs authentifiés -->
+                                @if (Auth::user()->type === 'conducteur')
+                                    <li><a class="dropdown-item" href="{{ route('home') }}">Tableau de bord</a></li>
+                                @elseif (Auth::user()->type === 'passager')
+                                    <li><a class="dropdown-item" href="{{ route('contact.index') }}">Tableau de bord</a>
+                                    </li>
+                                @endif
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -122,11 +129,12 @@
                                     </form>
                                 </li>
                             @else
-                                <!-- Links for guests -->
+                                <!-- Liens pour les invités -->
                                 <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
                                 <li><a class="dropdown-item" href="{{ route('login') }}">Connexion</a></li>
                             @endauth
                         </ul>
+
                     </li>
                     <!-- Profile dropdown END -->
                 </ul>
@@ -289,6 +297,8 @@ Footer START -->
 
     <!-- ThemeFunctions -->
     <script src="{{ asset('assets/js/functions.js') }}"></script>
+
+    @stack('js')
 
 </body>
 
