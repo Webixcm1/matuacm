@@ -29,10 +29,9 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login', 'login')->name('login.store');
 });
+Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
 Route::middleware('auth')->group(function (){
-    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-
     //DRIVE ROUTE
     Route::get('home', [AccueilController::class, 'index'])->name('home');
 });
