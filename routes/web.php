@@ -31,7 +31,7 @@ Route::controller(LoginController::class)->group(function () {
 });
 Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::middleware('auth')->group(function (){
+Route::middleware('auth')->prefix('drive')->group(function (){
     //DRIVE ROUTE
     Route::get('home', [AccueilController::class, 'index'])->name('home');
 });

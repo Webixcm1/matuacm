@@ -16,10 +16,12 @@
                 <!-- Avatar and info START -->
                 <div class="d-sm-flex align-items-center">
                     <div class="avatar avatar-xl mb-2 mb-sm-0">
-                        <img class="avatar-img rounded-circle" src="{{ asset('users/' . Auth::user()->avatar) }}" alt="">
+                        <img class="avatar-img rounded-circle" src="{{ asset('users/' . Auth::user()->avatar) }}"
+                            alt="">
                     </div>
                     <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span> {{ Auth::user()->nom }}</h4>
-                    <a href="add-listing.html" class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"><i
+
+                    <a href="#" class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"><i
                             class="bi bi-plus-lg fa-fw me-2"></i>Publier Un Trajet</a>
                 </div>
                 <!-- Avatar and info START -->
@@ -49,7 +51,7 @@
                                 <li class="nav-item"> <a class="nav-link" href="#"><i
                                             class="bi bi-bookmark-heart fa-fw me-1"></i>Reservations</a> </li>
 
-                                <li class="nav-item"> <a class="nav-link" href="agent-reviews.html"><i
+                                <li class="nav-item"> <a class="nav-link" href="#"><i
                                             class="bi bi-star fa-fw me-1"></i>Reviews</a></li>
 
                                 <li> <a class="nav-link" href="agent-settings.html"><i
@@ -62,7 +64,30 @@
             </div>
         </div>
     </section>
-    @yield('content1')
+
+    <section class="pt-0">
+        <div class="container vstack gap-4">
+
+            @if (Auth::user()->status == false)
+                <div class="alert alert-info" role="alert">
+                    <i class="bi bi-exclamation-octagon-fill me-2"></i> Veuillez vérifier votre compte pour pouvoir
+                    publier un trajet sur Matuacm. <a href="#" class="text-info"><strong>Vérifiez-le
+                            maintenant</strong></a>.
+                </div>
+            @endif
+
+            <!-- Title START -->
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="fs-4 mb-0">@yield('title1')</h1>
+                </div>
+            </div>
+            <!-- Title END -->
+
+            <!-- Counter START -->
+            @yield('content1')
+        </div>
+    </section>
 @endsection
 
 @push('js')

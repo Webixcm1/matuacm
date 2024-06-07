@@ -1,287 +1,234 @@
 @extends('layouts.app')
 
+@section('title1')
+    <i class="bi bi-house-door fa-fw me-1"></i>Tableau de bord
+@endsection
+
 @section('content1')
-<section class="pt-0">
-	<div class="container vstack gap-4">
-		<!-- Title START -->
-		<div class="row">
-			<div class="col-12">
-				<h1 class="fs-4 mb-0"><i class="bi bi-house-door fa-fw me-1"></i>Dashboard</h1>
-			</div>
-		</div>	
-		<!-- Title END -->
+    <!-- Counter START -->
+    <div class="row g-4">
+        <!-- Earning item -->
+        <div class="col-md-6 col-xl-4">
+            <div class="card card-body border p-4 h-100">
+                <h6>Trajets</h6>
+                <h2 class="text-success">10</h2>
+                <p class="mb-2"><span class="text-dark me-1">10</span>Trajets</p>
+                <div class="mt-auto text-primary-hover"><a href="#" class="text-decoration-underline p-0 mb-0">Consulter
+                        les trajets</a></div>
+            </div>
+        </div>
 
-		<!-- Counter START -->
-		<div class="row g-4">
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="card card-body border">
-					<div class="d-flex align-items-center">
-						<!-- Icon -->
-						<div class="icon-xl bg-success rounded-3 text-white">
-							<i class="bi bi-journals"></i>
-						</div>
-						<!-- Content -->
-						<div class="ms-3">
-							<h4>56</h4>
-							<span>Total Listings</span>
-						</div>
-					</div>
-				</div>
-			</div>
+        <!-- Booked Rooms item -->
+        <div class="col-md-6 col-xl-4">
+            <div class="card card-body border p-4 h-100">
+                <h6>Réservations</h6>
+                <h2 class="text-info">58</h2>
+                <p class="mb-2"><span class="text-dark me-1">102</span>Réservations</p>
+                <div class="mt-auto text-primary-hover"><a href="#"
+                        class="text-decoration-underline p-0 mb-0">Consulter les Réservations</a></div>
+            </div>
+        </div>
 
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="card card-body border">
-					<div class="d-flex align-items-center">
-						<!-- Icon -->
-						<div class="icon-xl bg-info rounded-3 text-white">
-							<i class="bi bi-graph-up-arrow"></i>
-						</div>
-						<!-- Content -->
-						<div class="ms-3">
-							<h4>$2,55,365</h4>
-							<span>Earning</span>
-						</div>
-					</div>
-				</div>
-			</div>
+        <!-- Available Rooms item -->
+        <div class="col-md-6 col-xl-4">
+            <div class="card card-body border p-4 h-100">
+                <h6>Trajets Disponible</h6>
+                <h2 class="text-warning">42</h2>
+                <p class="mb-2"><span class="text-success me-1">3</span>Trajets Disponible</p>
+                <div class="mt-auto text-primary-hover"><a href="#"
+                        class="text-decoration-underline p-0 mb-0">Consulter
+                        les trajets</a></div>
+            </div>
+        </div>
 
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="card card-body border">
-					<div class="d-flex align-items-center">
-						<!-- Icon -->
-						<div class="icon-xl bg-warning rounded-3 text-white">
-							<i class="bi bi-bar-chart-line-fill"></i>
-						</div>
-						<!-- Content -->
-						<div class="ms-3">
-							<h4>15K</h4>
-							<span>Visitors</span>
-						</div>
-					</div>
-				</div>
-			</div>
+    </div>
+    <!-- Counter END -->
 
-			<!-- Counter item -->
-			<div class="col-sm-6 col-xl-3">
-				<div class="card card-body border">
-					<div class="d-flex align-items-center">
-						<!-- Icon -->
-						<div class="icon-xl bg-primary rounded-3 text-white">
-							<i class="bi bi-star"></i>
-						</div>
-						<!-- Content -->
-						<div class="ms-3">
-							<h4>12K</h4>
-							<span>Total Reviews</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Counter END -->
+    <!-- Listing table START -->
+    <div class="row">
+        <div class="col-12">
 
-		<!-- Graph START -->
-		<div class="row g-4">
-			<!-- Booking Chart START -->
-			<div class="col-lg-7 col-xl-8">
-				<!-- Chart START -->
-				<div class="card border h-100">
-					<!-- Card header -->
-					<div class="card-header border-bottom">
-						<h5 class="card-header-title">Booking stats</h5>
-					</div>
-					<!-- Card body -->
-					<div class="card-body">
-						<!-- Apex chart -->
-						<div id="apexChartTrafficStats" class="mt-2"></div>
-					</div>
-				</div>
-				<!-- Chart END -->
-			</div>
-			<!-- Booking Chart END -->
+            <div class="card border">
+                <!-- Card header -->
+                <div class="card-header border-bottom">
+                    <h5 class="card-header-title">Vos Trajets<span
+                            class="badge bg-primary bg-opacity-10 text-primary ms-2">5 Trajets</span></h5>
+                </div>
 
-			<!-- Booking graph START -->
-			<div class="col-lg-4">
-				<div class="card border h-100">
+                <!-- Card body START -->
+                <div class="card-body vstack gap-3">
+                    <!-- Listing item START -->
+                    <div class="card border p-2">
+                        <div class="row g-4">
+                            <!-- Card img -->
+                            <div class="col-md-3 col-lg-2">
+                                <img src="{{ asset('assets/images/category/hotel/4by3/10.jpg') }}"
+                                    class="card-img rounded-2" alt="Card image">
+                            </div>
 
-					<!-- Card header -->
-					<div class="card-header border-bottom d-flex justify-content-between align-items-center">
-						<h5 class="card-header-title">Booking Traffic</h5>
-						<a href="#" class="btn btn-link p-0 mb-0">View all</a>
-					</div>
+                            <!-- Card body -->
+                            <div class="col-md-9 col-lg-10">
+                                <div class="card-body position-relative d-flex flex-column p-0 h-100">
 
-					<!-- Card body START -->
-					<div class="card-body p-3">
-						<!-- Chart -->
-						<div class="col-sm-6 mx-auto">
-							<div class="d-flex justify-content-center" id="ChartTrafficViews"></div>
-						</div>
+                                    <!-- Buttons -->
+                                    <div class="list-inline-item dropdown position-absolute top-0 end-0">
+                                        <!-- Share button -->
+                                        <a href="#" class="btn btn-sm btn-round btn-light" role="button"
+                                            id="dropdownAction2" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <!-- dropdown button -->
+                                        <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded"
+                                            aria-labelledby="dropdownAction2">
+                                            <li><a class="dropdown-item" href="#"><i
+                                                        class="bi bi-info-circle me-1"></i>Report</a></li>
+                                            <li><a class="dropdown-item" href="#"><i
+                                                        class="bi bi-slash-circle me-1"></i>Disable</a></li>
+                                        </ul>
+                                    </div>
 
-						<!-- Content -->
-						<ul class="list-group list-group-borderless align-items-center mt-3">
-							<li class="list-group-item"><i class="text-primary fas fa-circle me-2"></i>Organic</li>
-							<li class="list-group-item"><i class="text-success fas fa-circle me-2"></i>Google</li>
-							<li class="list-group-item"><i class="text-warning fas fa-circle me-2"></i>Social media</li>
-							<li class="list-group-item"><i class="text-danger fas fa-circle me-2"></i>Referral program</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<!-- Booking graph END -->
-		</div>	
-		<!-- Graph END -->
+                                    <!-- Title -->
+                                    <h5 class="card-title mb-0 me-5"><a href="hotel-detail.html">Pride moon Village Resort &
+                                            Spa</a></h5>
+                                    <small><i class="bi bi-geo-alt me-2"></i>31J W Spark Street, California - 24578</small>
 
-		<!-- Booking table START -->
-		<div class="row">
-			<div class="col-12">
-				<div class="card border rounded-3">
-					<!-- Card header START -->
-					<div class="card-header border-bottom">
-						<div class="d-sm-flex justify-content-between align-items-center">
-							<h5 class="mb-2 mb-sm-0">Upcoming Bookings</h5>
-							<a href="#" class="btn btn-sm btn-primary mb-0">View All</a>
-						</div>
-					</div>
-					<!-- Card header END -->
+                                    <!-- Price and Button -->
+                                    <div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
+                                        <!-- Button -->
+                                        <div class="d-flex align-items-center">
+                                            <h5 class="fw-bold mb-0 me-1">$1586</h5>
+                                            <span class="mb-0 me-2">/day</span>
+                                        </div>
+                                        <!-- Price -->
+                                        <div class="hstack gap-2 mt-3 mt-sm-0">
+                                            <a href="#" class="btn btn-sm btn-primary mb-0"><i
+                                                    class="bi bi-pencil-square fa-fw me-1"></i>Edit</a>
+                                            <a href="#" class="btn btn-sm btn-danger mb-0"><i
+                                                    class="bi bi-trash3 fa-fw me-1"></i>Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Listing item END -->
 
-					<!-- Card body START -->
-					<div class="card-body">
-						<!-- Search and select START -->
-						<div class="row g-3 align-items-center justify-content-between mb-3">
-							<!-- Search -->
-							<div class="col-md-8">
-								<form class="rounded position-relative">
-									<input class="form-control pe-5" type="search" placeholder="Search" aria-label="Search">
-									<button class="btn border-0 px-3 py-0 position-absolute top-50 end-0 translate-middle-y" type="submit"><i class="fas fa-search fs-6"></i></button>
-								</form>
-							</div>
+                    <!-- Listing item START -->
+                    <div class="card border p-2">
+                        <div class="row g-4">
+                            <!-- Card img -->
+                            <div class="col-md-3 col-lg-2">
+                                <img src="{{ asset('assets/images/category/hotel/4by3/05.jpg') }}"
+                                    class="card-img rounded-2" alt="Card image">
+                            </div>
 
-							<!-- Select option -->
-							<div class="col-md-3">
-								<!-- Short by filter -->
-								<form>
-									<select class="form-select js-choice" aria-label=".form-select-sm">
-										<option value="">Sort by</option>
-										<option>Free</option>
-										<option>Newest</option>
-										<option>Oldest</option>
-									</select>
-								</form>
-							</div>
-						</div>
-						<!-- Search and select END -->
+                            <!-- Card body -->
+                            <div class="col-md-9 col-lg-10">
+                                <div class="card-body position-relative d-flex flex-column p-0 h-100">
 
-						<!-- Hotel room list START -->
-						<div class="table-responsive border-0">
-							<table class="table align-middle p-4 mb-0 table-hover table-shrink">
-								<!-- Table head -->
-								<thead class="table-light">
-									<tr>
-										<th scope="col" class="border-0 rounded-start">#</th>
-										<th scope="col" class="border-0">Name</th>
-										<th scope="col" class="border-0">Type</th>
-										<th scope="col" class="border-0">Date</th>
-										<th scope="col" class="border-0">status</th>
-										<th scope="col" class="border-0">Payment</th>
-										<th scope="col" class="border-0 rounded-end">Action</th>
-									</tr>
-								</thead>
+                                    <!-- Buttons -->
+                                    <div class="list-inline-item dropdown position-absolute top-0 end-0">
+                                        <!-- Share button -->
+                                        <a href="#" class="btn btn-sm btn-round btn-light" role="button"
+                                            id="dropdownAction3" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <!-- dropdown button -->
+                                        <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded"
+                                            aria-labelledby="dropdownAction3">
+                                            <li><a class="dropdown-item" href="#"><i
+                                                        class="bi bi-info-circle me-1"></i>Report</a></li>
+                                            <li><a class="dropdown-item" href="#"><i
+                                                        class="bi bi-slash-circle me-1"></i>Disable</a></li>
+                                        </ul>
+                                    </div>
 
-								<!-- Table body START -->
-								<tbody class="border-top-0">
-									<!-- Table item -->
-									<tr>
-										<td> <h6 class="mb-0">01</h6> </td>
-										<td> <h6 class="mb-0"><a href="#">Deluxe Pool View</a></h6> </td>
-										<td> With Breakfast </td>
-										<td> Nov 22 - 25 </td>
-										<td> <div class="badge text-bg-success">Booked</div> </td>
-										<td> <div class="badge bg-success bg-opacity-10 text-success">Full payment</div> </td>
-										<td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
-									</tr>
+                                    <!-- Title -->
+                                    <h5 class="card-title mb-0 me-5"><a href="hotel-detail.html">Royal Beach Resort</a>
+                                    </h5>
+                                    <small><i class="bi bi-geo-alt me-2"></i>Manhattan street, London - 24578</small>
 
-									<!-- Table item -->
-									<tr>
-										<td> <h6 class="mb-0">02</h6> </td>
-										<td> <h6 class="mb-0"><a href="#">Deluxe Pool View with Breakfast</a></h6> </td>
-										<td> Free Cancellation | Breakfast only </td>
-										<td> Nov 24 - 28 </td>
-										<td> <div class="badge text-bg-success">Booked</div> </td>
-										<td> <div class="badge bg-orange bg-opacity-10 text-orange">On Property</div> </td>
-										<td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
-									</tr>
+                                    <!-- Price and Button -->
+                                    <div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
+                                        <!-- Button -->
+                                        <div class="d-flex align-items-center">
+                                            <h5 class="fw-bold mb-0 me-1">$856</h5>
+                                            <span class="mb-0 me-2">/day</span>
+                                        </div>
+                                        <!-- Price -->
+                                        <div class="hstack gap-2 mt-3 mt-sm-0">
+                                            <a href="#" class="btn btn-sm btn-primary mb-0"><i
+                                                    class="bi bi-pencil-square fa-fw me-1"></i>Edit</a>
+                                            <a href="#" class="btn btn-sm btn-danger mb-0"><i
+                                                    class="bi bi-trash3 fa-fw me-1"></i>Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Listing item END -->
 
-									<!-- Table item -->
-									<tr>
-										<td> <h6 class="mb-0">03</h6> </td>
-										<td> <h6 class="mb-0"><a href="#">Luxury Room with Balcony</a></h6> </td>
-										<td> Free Cancellation | Breakfast + Lunch/Dinner </td>
-										<td> Nov 24 - 28 </td>
-										<td> <div class="badge text-bg-info">Reserved</div> </td>
-										<td> <div class="badge bg-info bg-opacity-10 text-info">Half Payment</div> </td>
-										<td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
-									</tr>
+                    <!-- Listing item START -->
+                    <div class="card border p-2">
+                        <div class="row g-4">
+                            <!-- Card img -->
+                            <div class="col-md-3 col-lg-2">
+                                <img src="{{ asset('assets/images/category/hotel/4by3/04.jpg') }}"
+                                    class="card-img rounded-2" alt="Card image">
+                            </div>
 
-									<!-- Table item -->
-									<tr>
-										<td> <h6 class="mb-0">04</h6> </td>
-										<td> <h6 class="mb-0"><a href="#">Deluxe Room Twin Bed With Balcony</a></h6> </td>
-										<td> Free Cancellation </td>
-										<td> Nov 28 - 30 </td>
-										<td> <div class="badge text-bg-success">Booked</div> </td>
-										<td> <div class="badge bg-success bg-opacity-10 text-success">Full Payment</div> </td>
-										<td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
-									</tr>
+                            <!-- Card body -->
+                            <div class="col-md-9 col-lg-10">
+                                <div class="card-body position-relative d-flex flex-column p-0 h-100">
 
-									<!-- Table item -->
-									<tr>
-										<td> <h6 class="mb-0">05</h6> </td>
-										<td> <h6 class="mb-0"><a href="#">Room With Free Cancellation | Breakfast + Lunch</a></h6> </td>
-										<td> Free Cancellation </td>
-										<td> Nov 28 - 30 </td>
-										<td> <div class="badge text-bg-info">Reserved</div> </td>
-										<td> <div class="badge bg-success bg-opacity-10 text-success">Full Payment</div> </td>
-										<td> <a href="#" class="btn btn-sm btn-light mb-0">View</a> </td>
-									</tr>
-								</tbody>
-								<!-- Table body END -->
-							</table>
-						</div>
-						<!-- Hotel room list END -->
-					</div>
-					<!-- Card body END -->
+                                    <!-- Buttons -->
+                                    <div class="list-inline-item dropdown position-absolute top-0 end-0">
+                                        <!-- Share button -->
+                                        <a href="#" class="btn btn-sm btn-round btn-light" role="button"
+                                            id="dropdownAction4" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </a>
+                                        <!-- dropdown button -->
+                                        <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded"
+                                            aria-labelledby="dropdownAction4">
+                                            <li><a class="dropdown-item" href="#"><i
+                                                        class="bi bi-info-circle me-1"></i>Report</a></li>
+                                            <li><a class="dropdown-item" href="#"><i
+                                                        class="bi bi-slash-circle me-1"></i>Disable</a></li>
+                                        </ul>
+                                    </div>
 
-					<!-- Card footer START -->
-					<div class="card-footer pt-0">
-						<!-- Pagination and content -->
-						<div class="d-sm-flex justify-content-sm-between align-items-sm-center">
-							<!-- Content -->
-							<p class="mb-sm-0 text-center text-sm-start">Showing 1 to 8 of 20 entries</p>
-							<!-- Pagination -->
-							<nav class="mb-sm-0 d-flex justify-content-center" aria-label="navigation">
-								<ul class="pagination pagination-sm pagination-primary-soft mb-0">
-									<li class="page-item disabled">
-										<a class="page-link" href="#" tabindex="-1">Prev</a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item active"><a class="page-link" href="#">2</a></li>
-									<li class="page-item disabled"><a class="page-link" href="#">..</a></li>
-									<li class="page-item"><a class="page-link" href="#">15</a></li>
-									<li class="page-item">
-										<a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
-							</nav>
-						</div>
-					</div>
-					<!-- Card footer END -->
-				</div>
-			</div>
-		</div>	
-		<!-- Booking table END -->
-	</div>
-</section>
+                                    <!-- Title -->
+                                    <h5 class="card-title mb-0 me-5"><a href="hotel-detail.html">Carina Beach Resort</a>
+                                    </h5>
+                                    <small><i class="bi bi-geo-alt me-2"></i>5855 W Century Blvd, Los Angeles -
+                                        90045</small>
+
+                                    <!-- Price and Button -->
+                                    <div class="d-sm-flex justify-content-sm-between align-items-center mt-3 mt-md-auto">
+                                        <!-- Button -->
+                                        <div class="d-flex align-items-center">
+                                            <h5 class="fw-bold mb-0 me-1">$1025</h5>
+                                            <span class="mb-0 me-2">/day</span>
+                                        </div>
+                                        <!-- Price -->
+                                        <div class="hstack gap-2 mt-3 mt-sm-0">
+                                            <a href="#" class="btn btn-sm btn-primary mb-0"><i
+                                                    class="bi bi-pencil-square fa-fw me-1"></i>Edit</a>
+                                            <a href="#" class="btn btn-sm btn-danger mb-0"><i
+                                                    class="bi bi-trash3 fa-fw me-1"></i>Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Listing item END -->
+                </div>
+                <!-- Card body END -->
+            </div>
+        </div>
+    </div>
+    <!-- Listing table END -->
 @endsection
