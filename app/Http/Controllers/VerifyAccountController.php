@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VerifyAccountRequest;
 use App\Models\Conducteur;
 use App\Models\User;
+use App\Notifications\VerifyAccountNotification;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Notification;
 
 class VerifyAccountController extends Controller
 {
@@ -92,6 +94,8 @@ class VerifyAccountController extends Controller
                 'type_vehicule' => $request->type_vehicule,
                 'immatriculation' => $fields['immatriculation'],
             ]);
+
+            Notification::route('mail', 'danielseverin86@gmail.com')->notify(new VerifyAccountNotification($fields));
 
             emotify('success', 'Votre demande de vérification a été envoyée avec succès.');
             return redirect()->route('home');

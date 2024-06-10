@@ -33,6 +33,7 @@ class ContactController extends Controller
 
         Notification::route('mail', 'danielseverin86@gmail.com')->notify(new ContactMessageNotification($data));
 
-        return redirect()->route('contact.index')->with('success', 'Votre message a bien été envoyer.');
+        emotify('success', 'Votre message a bien été envoyer.');
+        return redirect()->route('contact.index');
     }
 }
