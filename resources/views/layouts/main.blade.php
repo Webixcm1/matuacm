@@ -11,8 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="THConsulting">
     <meta name="description" content="Matuacm - Première plateforme de covoiturage au Cameroun">
-    <!-- Favicon -->
-    {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -28,6 +26,7 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    @notifyCss
 
     @stack('css')
 
@@ -299,7 +298,8 @@ Footer START -->
     <script src="{{ asset('assets/js/functions.js') }}"></script>
 
     @stack('js')
-
+    <x-notify::notify />
+    @notifyJs
 </body>
 
 </html>

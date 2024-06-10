@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Matuacm :: Dashboard - Conducteur
+    Dashboard Conducteur - Matuacm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @push('css')
@@ -45,7 +45,7 @@
                         <div class="navbar navbar-expand-xl">
                             <ul class="navbar-nav navbar-offcanvas-menu">
 
-                                <li class="nav-item"> <a class="nav-link active" href="#"><i
+                                <li class="nav-item"> <a class="nav-link {{ Request::path('home') ? 'active' : '' }}" href="{{ route('home') }}"><i
                                             class="bi bi-house-door fa-fw me-1"></i>Tableau de bord</a> </li>
 
                                 <li class="nav-item"> <a class="nav-link" href="#"><i
@@ -71,7 +71,7 @@
             @if (Auth::user()->status == false)
                 <div class="alert alert-info" role="alert">
                     <i class="bi bi-exclamation-octagon-fill me-2"></i> Veuillez vérifier votre compte pour pouvoir
-                    publier un trajet sur Matuacm. <a href="#" class="text-info"><strong>Vérifiez-le
+                    publier un trajet sur Matuacm. <a href="{{ route('verify-account') }}" class="text-info"><strong>Vérifiez-le
                             maintenant</strong></a>.
                 </div>
             @endif
