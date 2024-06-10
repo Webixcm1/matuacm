@@ -87,11 +87,12 @@ class VerifyAccountController extends Controller
                 'type_vehicule' => $fields['type_vehicule'],
                 'immatriculation' => $fields['immatriculation'],
             ]);
-
+            emotify('success', 'Votre demande de vérification a été envoyé avec succès.');
             return redirect()->route('home');
         } catch (\Exception $e) {
             Log::error($e->getMessage());
-            return back()->with('error', 'Erreur lors de la création de la verification de votre compte');
+            emotify('error', 'Erreur lors de la création de la verification de votre compte.');
+            return back();
         }
     }
 }

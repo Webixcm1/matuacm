@@ -47,9 +47,11 @@ class LoginController extends Controller
                 $user = Auth::user();
             
                 if ($user->type === 'conducteur') {
-                    return redirect()->route('home')->with('success', 'Connexion réussie en tant que conducteur.');
+                    emotify('success', 'Connexion réussi!');
+                    return redirect()->route('home');
                 } elseif ($user->type === 'passager') {
-                    return redirect()->route('index')->with('success', 'Connexion réussie en tant que passager.');
+                    emotify('success', 'Connexion réussi !');
+                    return redirect()->route('index');
                 }
             }
             
@@ -65,7 +67,8 @@ class LoginController extends Controller
         } catch (\Exception $e) {
             // Gestion des erreurs
             Log::error('Erreur lors de la connexion : ' . $e->getMessage());
-            return back()->with('error', $e->getMessage());
+            emotify('error', 'Erreur lors de la connexion.');
+            return back();
         }
     }
 
@@ -78,6 +81,7 @@ class LoginController extends Controller
     {
         auth()->logout();
 
+        emotify('success', 'Votre session a été fermé avec succès!');
         return redirect()->route('index');
     }
 }

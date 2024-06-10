@@ -5,6 +5,7 @@
 
 <head>
     <title>@yield('title')</title>
+    @notifyCss
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
@@ -26,15 +27,11 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    @notifyCss
 
     @stack('css')
-
-
 </head>
 
 <body>
-
     <!-- Header START -->
     <header class="navbar-light header-sticky">
         <!-- Logo Nav START -->
@@ -103,7 +100,7 @@
                             @auth
                                 <div>
                                     <img class="avatar-img rounded-circle shadow"
-                                        src="{{ asset('users/' . Auth::user()->avatar) }}" alt="avatar">
+                                        src="{{ asset(Auth::user()->avatar) }}" alt="avatar">
                                 </div>
                             @else
                                 <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
@@ -148,9 +145,8 @@
 
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-
         @yield('content')
-
+         @include('notify::components.notify')
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 
@@ -297,9 +293,9 @@ Footer START -->
     <!-- ThemeFunctions -->
     <script src="{{ asset('assets/js/functions.js') }}"></script>
 
-    @stack('js')
     <x-notify::notify />
     @notifyJs
+    @stack('js')
 </body>
 
 </html>

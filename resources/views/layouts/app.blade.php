@@ -16,7 +16,7 @@
                 <!-- Avatar and info START -->
                 <div class="d-sm-flex align-items-center">
                     <div class="avatar avatar-xl mb-2 mb-sm-0">
-                        <img class="avatar-img rounded-circle" src="{{ asset('users/' . Auth::user()->avatar) }}"
+                        <img class="avatar-img rounded-circle" src="{{ asset(Auth::user()->avatar) }}"
                             alt="">
                     </div>
                     <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span> {{ Auth::user()->nom }}</h4>
