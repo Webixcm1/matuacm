@@ -37,61 +37,67 @@ class VerifyAccountController extends Controller
         $user = User::find($id);
 
         if (!$user) {
-            return back()->with('error', 'Utilisateur non trouvé.');
+            emotify('error', 'Utilisateur non trouvé.');
+            return back();
         }
 
         $folder = public_path('Conducteurs/' . $user->telephone);
 
-        if (!is_dir($folder)) {
-            mkdir($folder, 0777, true);
+        // Supprimer le dossier existant s'il existe
+        if (is_dir($folder)) {
+            // Supprimer tous les fichiers dans le dossier
+            $files = glob($folder . '/*');
+            foreach ($files as $file) {
+                if (is_file($file)) {
+                    unlink($file);
+                }
+            }
+            // Supprimer le dossier lui-même
+            rmdir($folder);
         }
 
-        $files = [
-            'cni_verso' => null,
-            'cni_recto' => null,
-            'photos' => null,
-            'image_permis' => null
-        ];
+        // Créer le nouveau dossier pour les fichiers téléchargés
+        mkdir($folder, 0777, true);
 
-        foreach ($files as $key => &$filename) {
-            if ($request->hasFile($key)) {
-                $file = $request->file($key);
-                $filename = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
-                $file->move($folder, $filename);
-            }
+        // Ajouter les nouvelles images soumises
+        foreach ($request->allFiles() as $key => $file) {
+            $filename = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
+            $file->move($folder, $filename);
+            $fields[$key] = $filename;
         }
 
         try {
-            // Update user
+            // Mettre à jour l'utilisateur
             $user->update([
                 'nom' => $fields['nom'],
                 'prenom' => $fields['prenom'],
             ]);
 
-            // Create new driver in storage
+            // Créer un nouveau conducteur dans le stockage
             Conducteur::create([
                 'user_id' => Auth::user()->id,
                 'dateNais' => $fields['dateNais'],
                 'lieu_naissance' => $fields['lieu_naissance'],
                 'sexe' => $fields['sexe'],
                 'cni' => $fields['cni'],
-                'cni_verso' => $files['cni_verso'],
-                'cni_recto' => $files['cni_recto'],
-                'photos' => $files['photos'],
+                'cni_verso' => $fields['cni_verso'],
+                'cni_recto' => $fields['cni_recto'],
+                'photos' => $fields['photos'],
                 'adresse' => $fields['adresse'],
                 'ville' => $fields['ville'],
                 'numero_permis' => $fields['numero_permis'],
-                'image_permis' => $files['image_permis'],
+                'image_permis' => $fields['image_permis'],
                 'date_obtention' => $fields['date_obtention'],
                 'marque' => $fields['marque'],
-                'type_vehicule' => $fields['type_vehicule'],
+                'type_vehicule' => $request->type_vehicule,
                 'immatriculation' => $fields['immatriculation'],
             ]);
-            emotify('success', 'Votre demande de vérification a été envoyé avec succès.');
+
+            emotify('success', 'Votre demande de vérification a été envoyée avec succès.');
             return redirect()->route('home');
         } catch (\Exception $e) {
             Log::error($e->getMessage());
-            emotify('error', 'Erreur lors de la création de la verification de votre compte.');
+            emotify('error', 'Erreur lors de la création de la vérification de votre compte.');
             return back();
         }
     }
