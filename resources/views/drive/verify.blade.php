@@ -12,7 +12,7 @@
 
 @section('content')
     <!-- =======================
-                                                                                                                                        Page Banner START -->
+                                                                                                                                            Page Banner START -->
     <section class="pb-0">
         <div class="container">
             <div class="row">
@@ -34,8 +34,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 mx-auto">
-                    <form class="vstack gap-4" method="POST" action="{{ route('verify-account.store', Auth()->user()->id) }}"
-                        enctype="multipart/form-data">
+                    <form class="vstack gap-4" method="POST"
+                        action="{{ route('verify-account.store', Auth()->user()->id) }}" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Owner Detail START -->
@@ -51,7 +51,7 @@
 
                                     <!-- Nom -->
                                     <div class="col-md-6">
-                                        <label class="form-label">Nom</label>
+                                        <label class="form-label">Nom <span class="text-danger">*</span></label>
                                         <input class="form-control @error('nom') is-invalid @enderror" type="text"
                                             placeholder="Tamo" name="nom" value="{{ old('nom') }}">
                                         @error('nom')
@@ -61,7 +61,7 @@
 
                                     <!-- Prenom -->
                                     <div class="col-md-6">
-                                        <label class="form-label">Prénom</label>
+                                        <label class="form-label">Prénom <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control @error('prenom') is-invalid @enderror"
                                             placeholder="Sylvestre" name="prenom" value="{{ old('prenom') }}">
                                         @error('prenom')
@@ -73,8 +73,8 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Date de naissance <span
                                                 class="text-danger">*</span></label>
-                                        <input class="form-control @error('dateNais') is-invalid @enderror" type="date"
-                                            placeholder="" name="dateNais" value="{{ old('dateNais') }}">
+                                        <input class="form-control flatpickr @error('dateNais') is-invalid @enderror" type="date"
+                                            placeholder="29 Jun 2024" name="dateNais" value="{{ old('dateNais') }}">
                                         @error('dateNais')
                                             <span class="text-danger">Ce Champ est obligatoire</span>
                                         @enderror
@@ -143,7 +143,7 @@
                                         <label class="form-label">CNI Recto <span class="text-danger">*</span></label>
                                         <input class="form-control @error('cni_recto') is-invalid @enderror"
                                             type="file" accept="image/jpg, image/jpeg, image/png" name="cni_recto"
-                                            value="{{ isset($merchand->numero_cni) ? $merchand->numero_cni : old('cni') }}">
+                                            value="{{ old('cni_recto') }}">
                                         <p class="small mb-0"><b>Note:</b> Uniquement JPG, JPEG, et
                                             PNG.</p>
                                         @error('cni_recto')
@@ -223,8 +223,8 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Date d'obtention <span
                                                 class="text-danger">*</span></label>
-                                        <input class="form-control @error('date_obtention') is-invalid @enderror"
-                                            type="date" placeholder="" name="date_obtention"
+                                        <input class="form-control flatpickr @error('date_obtention') is-invalid @enderror"
+                                            type="date" placeholder="29 Jun 2024" name="date_obtention"
                                             value="{{ old('date_obtention') }}">
                                         @error('date_obtention')
                                             <span class="text-danger">Ce Champ est obligatoire</span>

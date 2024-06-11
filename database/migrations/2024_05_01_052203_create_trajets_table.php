@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('trajets', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('conducteur_id')->constrained('conducteurs')->cascadeOnDelete();
-            $table->dateTime('dateH_depart')->nullable();
+            $table->date('date_depart')->nullable();
+            $table->time('heure_depart')->nullable();
             $table->string('point_depart')->nullable();
+            $table->string('destination')->nullable();
             $table->string('nombre_place')->nullable();
+            $table->string('image')->nullable();
             $table->string('prix')->nullable();
             $table->boolean('status')->default(0); // 0 for open and 1 for close
             $table->timestamps();

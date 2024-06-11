@@ -11,7 +11,17 @@ class Trajet extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'conducteur_id',
+        'date_depart',
+        'heure_depart',
+        'point_depart',
+        'destination',
+        'nombre_place',
+        'image',
+        'prix',
+        'status',
+    ];
 
     public function conducteur(): BelongsTo
     {

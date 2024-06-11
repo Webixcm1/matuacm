@@ -47,5 +47,6 @@ Route::middleware('auth')->prefix('drive')->group(function (){
     //TRAJET ROUTE
     Route::controller(TrajetController::class)->group(function () {
         Route::get('trajets', 'create')->name('trajets.create')->middleware('checkVerify');
+        Route::post('trajets', 'store')->name('trajets.store');
     });
 });

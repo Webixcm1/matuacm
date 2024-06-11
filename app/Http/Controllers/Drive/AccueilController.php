@@ -15,8 +15,9 @@ class AccueilController extends Controller
      */
     public function index(): View
     {
-        $countTrajet = Trajet::with('conducteurs')->count();
-        $trajets = Trajet::with('conducteurs')->get();
-        return view('drive.home', compact(['countTrajet', 'trajets']));
+        $countTrajet = Trajet::with('conducteur')->count();
+        $trajets = Trajet::with('conducteur')->paginate(6);
+        $avialableTrajet = Trajet::with('conducteur')->where('status', '=', true)->count();
+        return view('drive.home', compact(['countTrajet', 'trajets', 'avialableTrajet']));
     }
 }
