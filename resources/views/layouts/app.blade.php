@@ -21,7 +21,7 @@
                     </div>
                     <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span> {{ Auth::user()->nom }}</h4>
 
-                    <a href="#" class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"><i
+                    <a href="{{ route('trajets.create') }}" class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"><i
                             class="bi bi-plus-lg fa-fw me-2"></i>Publier Un Trajet</a>
                 </div>
                 <!-- Avatar and info START -->

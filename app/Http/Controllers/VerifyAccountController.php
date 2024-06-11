@@ -70,32 +70,13 @@ class VerifyAccountController extends Controller
 
         try {
             // Mettre à jour l'utilisateur
-            $user->update([
-                'nom' => $fields['nom'],
-                'prenom' => $fields['prenom'],
-            ]);
+            $this->updateUser($user, $fields);
 
             // Créer un nouveau conducteur dans le stockage
-            Conducteur::create([
-                'user_id' => Auth::user()->id,
-                'dateNais' => $fields['dateNais'],
-                'lieu_naissance' => $fields['lieu_naissance'],
-                'sexe' => $fields['sexe'],
-                'cni' => $fields['cni'],
-                'cni_verso' => $fields['cni_verso'],
-                'cni_recto' => $fields['cni_recto'],
-                'photos' => $fields['photos'],
-                'adresse' => $fields['adresse'],
-                'ville' => $fields['ville'],
-                'numero_permis' => $fields['numero_permis'],
-                'image_permis' => $fields['image_permis'],
-                'date_obtention' => $fields['date_obtention'],
-                'marque' => $fields['marque'],
-                'type_vehicule' => $request->type_vehicule,
-                'immatriculation' => $fields['immatriculation'],
-            ]);
+            $this->createDrive($request, $fields);
 
-            Notification::route('mail', 'danielseverin86@gmail.com')->notify(new VerifyAccountNotification($fields));
+            //notification
+            $this->notifySupport($fields);
 
             emotify('success', 'Votre demande de vérification a été envoyée avec succès.');
             return redirect()->route('home');
@@ -104,5 +85,58 @@ class VerifyAccountController extends Controller
             emotify('error', 'Erreur lors de la création de la vérification de votre compte.');
             return back();
         }
+    }
+
+    /**
+     * update user function
+     * 
+     * @return \App\Models\User
+     */
+    private function updateUser($user, $fields)
+    {
+        $users =  $user->update([
+            'nom' => $fields['nom'],
+            'prenom' => $fields['prenom'],
+        ]);
+
+        return $user;
+    }
+
+    /**
+     * create new drive function
+     * 
+     * @return \App\Models\Conducteur
+     */
+    private function createDrive($request, $fields): Conducteur
+    {
+        $conducteur = Conducteur::create([
+            'user_id' => Auth::user()->id,
+            'dateNais' => $fields['dateNais'],
+            'lieu_naissance' => $fields['lieu_naissance'],
+            'sexe' => $fields['sexe'],
+            'cni' => $fields['cni'],
+            'cni_verso' => $fields['cni_verso'],
+            'cni_recto' => $fields['cni_recto'],
+            'photos' => $fields['photos'],
+            'adresse' => $fields['adresse'],
+            'ville' => $fields['ville'],
+            'numero_permis' => $fields['numero_permis'],
+            'image_permis' => $fields['image_permis'],
+            'date_obtention' => $fields['date_obtention'],
+            'marque' => $fields['marque'],
+            'type_vehicule' => $request->type_vehicule,
+            'immatriculation' => $fields['immatriculation'],
+        ]);
+
+        return $conducteur;
+    }
+
+    /**
+     * handle notification
+     * 
+     */
+    private function notifySupport($fields)
+    {
+        Notification::route('mail', 'danielseverin86@gmail.com')->notify(new VerifyAccountNotification($fields));
     }
 }

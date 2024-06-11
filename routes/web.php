@@ -7,7 +7,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Drive\AccueilController;
+use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\VerifyAccountController;
+use App\Http\Middleware\VerifyAccountMiddleware;
 
 //HOME ROUTE
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -40,5 +42,10 @@ Route::middleware('auth')->prefix('drive')->group(function (){
     Route::controller(VerifyAccountController::class)->group(function () {
         Route::get('verify-account', 'index')->name('verify-account');
         Route::post('verify-account/{id}/verify', 'verifyAccount')->name('verify-account.store');
+    });
+
+    //TRAJET ROUTE
+    Route::controller(TrajetController::class)->group(function () {
+        Route::get('trajets', 'create')->name('trajets.create');
     });
 });

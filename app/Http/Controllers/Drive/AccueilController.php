@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Drive;
 
 use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
+use App\Models\Trajet;
 
 class AccueilController extends Controller
 {
@@ -14,6 +15,8 @@ class AccueilController extends Controller
      */
     public function index(): View
     {
-        return view('drive.home');
+        $countTrajet = Trajet::with('conducteurs')->count();
+        $trajets = Trajet::with('conducteurs')->get();
+        return view('drive.home', compact(['countTrajet', 'trajets']));
     }
 }
