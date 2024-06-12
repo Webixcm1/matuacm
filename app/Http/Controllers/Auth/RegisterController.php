@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -11,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Support\Facades\Auth;
+use Creativeorange\Gravatar\Facades\Gravatar;
 
 class RegisterController extends Controller
 {
@@ -33,17 +33,25 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request): RedirectResponse
     {
         $data = $request->validated();
-        $data['avatar'] = 'avatar.png';
         $data['password'] = Hash::make($request->password);
-        
-        try {
-           $user = User::create($data);
-            Auth::login($user);
-            return redirect()->route('index')->with('success', 'Votre compte a été créé avec succès.');
-        } catch (\Exception $e) {
 
+        try {
+            // Générer l'avatar Gravatar
+            $avatarUrl = Gravatar::get($request->email);
+
+            // Créer l'utilisateur avec l'avatar Gravatar
+            $data['avatar'] = $avatarUrl;
+            $user = User::create($data);
+
+            // Connecter l'utilisateur
+            Auth::login($user);
+
+            emotify('success', 'Votre Compte a été créé avec succès.');
+            return redirect()->route('index');
+        } catch (\Exception $e) {
             Log::error($e->getMessage());
-            return back()->with('error', 'Erreur lors de la création de votre compte');
+            emotify('error', 'Une erreur est survenue lors de la création de votre compte.');
+            return back();
         }
     }
 }

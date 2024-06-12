@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Auth;
+namespace App\Http\Requests\Trajets;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegisterRequest extends FormRequest
+class CreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,14 @@ class RegisterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|string|email|unique:users,email',
-            'telephone' => 'required|numeric|digits_between:9,15|unique:users,telephone', 
-            'password' => 'required|string|min:8|confirmed',
-            'type' => 'required|string',
-            'terms' => 'accepted'
+            'date_depart' => 'required|date',
+            'heure_depart' => 'required',
+            'point_depart' => 'required|string',
+            'destination' => 'required|string',
+            'nombre_place' => 'required|numeric',
+            'image' => 'required|image|mimes:png,jpg,jpeg',
+            'prix' => 'required|numeric',
+            'status' => 'required|boolean'
         ];
     }
 }

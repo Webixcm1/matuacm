@@ -4,17 +4,13 @@
 <!-- Mirrored from booking.webestica.com/sign-up.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Apr 2024 10:41:44 GMT -->
 
 <head>
-    <title>Matuacm :: Inscription</title>
+    <title>Inscription - Matuacm - Première plateforme de covoiturage au Cameroun</title>
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="matuacm">
     <meta name="description" content="">
-
-
-    <!-- Favicon -->
-    {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -64,16 +60,6 @@
                                         <h1 class="mb-2 h3">Créer votre compte</h1>
                                         <p class="mb-0">Vous êtes déjà membre?<a
                                                 href="{{ route('login') }}">Connectez-vous</a></p>
-
-                                        @if (session('error'))
-                                            <div class="alert alert-danger alert-dismissible fade show col-12 text-center mx-auto"
-                                                role="alert">
-                                                <i class="fa fa-info fs-5"></i> <strong>Erreur !</strong> Erreur lors de
-                                                la création de votre compte
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                        @endif
 
                                         <!-- Form START -->
                                         <form class="mt-4 text-start" method="POST"

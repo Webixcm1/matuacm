@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Matuacm :: A Propos
+    A Propos - Matuacm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')

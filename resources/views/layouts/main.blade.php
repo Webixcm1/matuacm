@@ -5,14 +5,13 @@
 
 <head>
     <title>@yield('title')</title>
+    @notifyCss
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="THConsulting">
     <meta name="description" content="Matuacm - Première plateforme de covoiturage au Cameroun">
-    <!-- Favicon -->
-    {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -30,12 +29,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
     @stack('css')
-
-
 </head>
 
 <body>
-
     <!-- Header START -->
     <header class="navbar-light header-sticky">
         <!-- Logo Nav START -->
@@ -104,7 +100,7 @@
                             @auth
                                 <div>
                                     <img class="avatar-img rounded-circle shadow"
-                                        src="{{ asset('users/' . Auth::user()->avatar) }}" alt="avatar">
+                                        src="{{ asset(Auth::user()->avatar) }}" alt="avatar">
                                 </div>
                             @else
                                 <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
@@ -149,9 +145,8 @@
 
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-
         @yield('content')
-
+         @include('notify::components.notify')
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 
@@ -298,8 +293,9 @@ Footer START -->
     <!-- ThemeFunctions -->
     <script src="{{ asset('assets/js/functions.js') }}"></script>
 
+    <x-notify::notify />
+    @notifyJs
     @stack('js')
-
 </body>
 
 </html>

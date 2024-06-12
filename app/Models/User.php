@@ -29,6 +29,7 @@ class User extends Authenticatable
         'type',
         'avatar',
         'status',
+        'verified_at',
     ];
 
     /**
@@ -54,6 +55,12 @@ class User extends Authenticatable
         ];
     }
 
+
+    /**
+     * handle the relationship
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
     public function conducteur(): HasOne
     {
         return $this->hasOne(Conducteur::class);
