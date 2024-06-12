@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Log;
 
 class TrajetController extends Controller
 {
-    
+    //TODO: Envoyer un message a tous les passagers apres la publication d'un trajets
+    //TODO: Envoyer un message a l'utilisateur apres verification de son compte
+
     /**
      * 
      */
@@ -21,12 +23,6 @@ class TrajetController extends Controller
         return view('trajets.create');
     }
 
-    /**
-     * create new instance in storage
-     * 
-     * @param \App\Http\Requests\Trajets\CreateRequest $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function store(CreateRequest $request): RedirectResponse
     {
         $user = Auth::user();
@@ -34,12 +30,15 @@ class TrajetController extends Controller
         $data = $request->validated();
         $data['conducteur_id'] = $conducteur_id;
 
-        //image
-        $this->image($request, $user);
+        // Add image path to data if image is uploaded
+        $imagePath = $this->handleImageUpload($request, $user);
+        if ($imagePath) {
+            $data['image'] = $imagePath;
+        }
 
         try {
             Trajet::create($data);
-            emotify('success', 'Votre Trajet a été crée avec succès.');
+            emotify('success', 'Votre Trajet a été créé avec succès.');
             return redirect()->route('home');
         } catch (\Exception $e) {
             Log::error($e->getMessage());
@@ -49,12 +48,14 @@ class TrajetController extends Controller
     }
 
     /**
-     * image
+     * Handle image upload and return the image path
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\User $user
+     * @return string|null
      */
-    private function image($request, $user)
+    private function handleImageUpload($request, $user)
     {
-        $folder = public_path('Trajets/' . $user->nom);
-
         if ($request->hasFile('image')) {
             $folder = public_path('Trajets/' . $user->nom);
             if (!is_dir($folder)) {
@@ -64,7 +65,10 @@ class TrajetController extends Controller
             $file = $request->file('image');
             $path = md5(uniqid()) . '.' . $file->getClientOriginalExtension();
             $file->move($folder, $path);
-            $data['image'] = $path;
+
+            return 'Trajets/' . $user->nom . '/' . $path;
         }
+
+        return null;
     }
 }
