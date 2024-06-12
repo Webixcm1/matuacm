@@ -73,8 +73,8 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Date de naissance <span
                                                 class="text-danger">*</span></label>
-                                        <input class="form-control flatpickr @error('dateNais') is-invalid @enderror" type="date"
-                                            placeholder="29 Jun 2024" name="dateNais" value="{{ old('dateNais') }}">
+                                        <input class="form-control @error('dateNais') is-invalid @enderror" type="date"
+                                            placeholder="" name="dateNais" value="{{ old('dateNais') }}">
                                         @error('dateNais')
                                             <span class="text-danger">Ce Champ est obligatoire</span>
                                         @enderror
