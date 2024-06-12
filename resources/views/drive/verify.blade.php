@@ -223,8 +223,8 @@
                                     <div class="col-md-6">
                                         <label class="form-label">Date d'obtention <span
                                                 class="text-danger">*</span></label>
-                                        <input class="form-control flatpickr @error('date_obtention') is-invalid @enderror"
-                                            type="date" placeholder="29 Jun 2024" name="date_obtention"
+                                        <input class="form-control @error('date_obtention') is-invalid @enderror"
+                                            type="date" placeholder="" name="date_obtention"
                                             value="{{ old('date_obtention') }}">
                                         @error('date_obtention')
                                             <span class="text-danger">Ce Champ est obligatoire</span>
