@@ -86,7 +86,7 @@
                                                 <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded"
                                                     aria-labelledby="dropdownAction4">
                                                     <li><a class="dropdown-item" href="#"><i
-                                                                class="bi bi-check-circle me-1"></i>Ouvert</a></li>
+                                                                class="bi bi-check-circle me-1"></i>Ouverir</a></li>
                                                     <li><a class="dropdown-item" href="#"><i
                                                                 class="bi bi-slash-circle me-1"></i>Fermer</a></li>
                                                 </ul>
@@ -96,7 +96,8 @@
                                                 <a href="#">{{ $trajet->point_depart }} -
                                                     {{ $trajet->destination }}</a>
                                             </h5>
-                                            <small><i class="bi bi-calendar me-2"></i>{{ $trajet->date_depart }} - {{ $trajet->heure_depart }}</small>
+                                            <small><i class="bi bi-calendar me-2"></i>{{ $trajet->date_depart }} à 
+                                                {{ $trajet->heure_depart }}</small>
 
                                             <!-- Price and Button -->
                                             <div
@@ -107,12 +108,22 @@
                                                 </div>
                                                 <!-- Buttons -->
                                                 <div class="hstack gap-2 mt-3 mt-sm-0">
-                                                    <a href="#" class="btn btn-sm btn-primary mb-0">
+                                                    <a href="{{ route('trajets.edit', $trajet->id) }}"
+                                                        class="btn btn-sm btn-primary mb-0">
                                                         <i class="bi bi-pencil-square fa-fw me-1"></i>Modifier
                                                     </a>
-                                                    <a href="#" class="btn btn-sm btn-danger mb-0">
-                                                        <i class="bi bi-trash3 fa-fw me-1"></i>Supprimer
-                                                    </a>
+                                                    <form id="deleteForm{{ $trajet->id }}"
+                                                        action="{{ route('trajets.destroy', $trajet->id) }}" method="POST"
+                                                        style="display: inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button" class="btn btn-sm btn-danger mb-0"
+                                                            data-toggle="modal" data-target="#modal-danger"
+                                                            data-id="{{ $trajet->id }}"
+                                                            onclick="showDeleteModal('{{ $trajet->id }}')">
+                                                            <i class="bi bi-trash3 fa-fw me-1"></i> Supprimer
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -128,6 +139,44 @@
             </div>
         </div>
     </div>
-
     <!-- Listing table END -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-danger" tabindex="-1" aria-labelledby="deleteModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Confirmer la suppression du trajet
+                        {{ $trajet->point_depart }} - {{ $trajet->destination }} </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Êtes-vous sr de vouloir supprimer ce trajet? L'opération est ireversible.</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-outline-danger" id="confirmDeleteButton">Supprimer</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#confirmDeleteButton').click(function() {
+                var id = $('#modal-danger').data('id');
+                document.getElementById('deleteForm' + id).submit();
+            });
+        });
+
+        function showDeleteModal(id) {
+            $('#modal-danger').data('id', id).modal('show');
+        }
+    </script>
+@endpush

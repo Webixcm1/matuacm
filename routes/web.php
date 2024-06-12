@@ -47,6 +47,9 @@ Route::middleware('auth')->prefix('drive')->group(function (){
     //TRAJET ROUTE
     Route::controller(TrajetController::class)->group(function () {
         Route::get('trajets', 'create')->name('trajets.create')->middleware('checkVerify');
+        Route::get('trajets/{trajet}/edit', 'edit')->name('trajets.edit');
         Route::post('trajets', 'store')->name('trajets.store');
+        Route::put('tarjets/{trajet}', 'update')->name('trajets.update');
+        Route::delete('trajets/{trajet}', 'destroy')->name('trajets.destroy');
     });
 });

@@ -14,9 +14,11 @@ class TrajetController extends Controller
 {
     //TODO: Envoyer un message a tous les passagers apres la publication d'un trajets
     //TODO: Envoyer un message a l'utilisateur apres verification de son compte
+    //TODO: Changer le status d'un trajet(ouverir ou fermer)
 
     /**
-     * 
+     * affichage de la vue de creation d'un trajet
+     * @return \Illuminate\Contracts\View\View
      */
     public function create(): View
     {
@@ -47,6 +49,78 @@ class TrajetController extends Controller
         }
     }
 
+    /**
+     * Page de modification d'un trajet
+     * 
+     * @param \App\Models\Trajet $trajets
+     * @return \Illuminate\Contracts\View\View
+    */
+    public function edit(Trajet $trajet): View
+    {
+        if (!$trajet) {
+            emotify('error', 'Le trajet que rechercher n\'existe pas.');
+            return redirect()->route('home');
+        }
+        return view('trajets.edit', compact('trajet'));
+    }
+
+    /**
+     * Update trajet
+     * 
+     * @param \App\Models\Trajet $trajet
+     * @param \App\Http\Requests\Trajets\CreateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(CreateRequest $request, Trajet $trajet): RedirectResponse
+    {
+        $user = Auth::user();
+        $conducteur_id = $user->conducteur->id;
+        $data = $request->validated();
+        $data['conducteur_id'] = $conducteur_id;
+
+        $imagePath = $this->handleImageUpload($request, $user);
+        if ($imagePath) {
+            $data['image'] = $imagePath;
+        }
+
+        try {
+            $trajet->update($data);
+            emotify('success', 'Votre Trajet a été mis  à jour avec succès.');
+            return redirect()->route('home');
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            emotify('error', 'Une erreur est survenue lors de la mise à jour de votre trajet.');
+            return back();
+        }
+    }
+
+    /**
+     * Delete trajet in storage
+     * 
+     * @param \App\Models\Trajet $trajet
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Trajet $trajet): RedirectResponse
+    {
+        if (!$trajet) {
+            emotify('error', 'Le trajet que rechercher n\'existe pas.');
+            return redirect()->route('home');
+        }
+
+        try {
+            $trajet->delete();
+            emotify('success', 'Votre Trajet a étésupprimer avec succès.');
+            return redirect()->route('home');
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            emotify('error', 'Une erreur est survenue lors de la suppression de votre trajet.');
+            return back();
+        }
+    }
+
+    /**
+     * 
+     */
     /**
      * Handle image upload and return the image path
      *

@@ -22,7 +22,7 @@ class AccueilController extends Controller
             $conducteurId = $user->conducteur->id;
 
             $countTrajet = Trajet::where('conducteur_id', $conducteurId)->count();
-            $trajets = Trajet::with('conducteur', 'reservations')->where('conducteur_id', $conducteurId)->paginate(6);
+            $trajets = Trajet::with('conducteur', 'reservations')->where('conducteur_id', $conducteurId)->latest()->paginate(6);
 
             // Compter le nombre total de trajets disponibles
             $availableTrajet = Trajet::where('conducteur_id', $conducteurId)->where('status', true)->count();

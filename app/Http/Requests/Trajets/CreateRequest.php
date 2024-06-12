@@ -25,6 +25,7 @@ class CreateRequest extends FormRequest
             'date_depart' => 'sometimes|required|date',
             'heure_depart' => 'sometimes|required',
             'point_depart' => 'sometimes|required|string',
+            'description' => 'sometimes|required|string',
             'destination' => 'sometimes|required|string',
             'nombre_place' => 'sometimes|required|numeric',
             'prix' => 'sometimes|required|numeric',

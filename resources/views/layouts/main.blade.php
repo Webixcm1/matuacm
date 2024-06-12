@@ -282,6 +282,7 @@ Footer START -->
 
     <!-- Back to top -->
     <div class="back-top"></div>
+    <script src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -295,7 +296,7 @@ Footer START -->
 
     <x-notify::notify />
     @notifyJs
-    @stack('js')
+    @stack('scripts')
 </body>
 
 </html>

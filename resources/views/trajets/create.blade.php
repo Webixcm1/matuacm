@@ -96,11 +96,22 @@
                         <div class="col-md-6">
                             <label class="form-label">Image du véhicule</label>
                             <input class="form-control @error('image') is-invalid @enderror" type="file"
-                                accept="image/jpg, image/jpeg, image/png" name="image"
-                                value="{{ old('image') }}">
+                                accept="image/jpg, image/jpeg, image/png" name="image" value="{{ old('image') }}">
                             <p class="small mb-0"><b>Note:</b> Uniquement JPG, JPEG, et
                                 PNG.</p>
                             @error('image')
+                                <span class="text-danger">Ce Champ est obligatoire</span>
+                            @enderror
+                        </div>
+
+                        <!-- Description -->
+                        <div class="col-12">
+                            <label class="form-label">Description</label>
+                            <textarea class="form-control @error('description') is-invalid @enderror" rows="2" placeholder="description"
+                                name="description">{{ old('description') }}</textarea>
+                            <p class="small mb-0"><b>Note:</b>Donnez une description du vehicule ou tout autre informations.
+                            </p>
+                            @error('description')
                                 <span class="text-danger">Ce Champ est obligatoire</span>
                             @enderror
                         </div>
