@@ -198,9 +198,9 @@ Footer START -->
                             <h5 class="text-white mb-2 mb-md-4">Link</h5>
                             <ul class="nav flex-column text-primary-hover">
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Inscription</a></li>
+                                        href="{{ route('register') }}">Inscription</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Connexion</a></li>
+                                        href="{{ route('login') }}">Connexion</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary" href="#">Police de
                                         confidentialité</a></li>
                                 </li>
