@@ -5,14 +5,13 @@
 
 <head>
     <title>@yield('title')</title>
+    @notifyCss
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="THConsulting">
     <meta name="description" content="Matuacm - Première plateforme de covoiturage au Cameroun">
-    <!-- Favicon -->
-    {{-- <link rel="shortcut icon" href="assets/images/favicon.ico"> --}}
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -29,11 +28,10 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 
-
+    @stack('css')
 </head>
 
 <body>
-
     <!-- Header START -->
     <header class="navbar-light header-sticky">
         <!-- Logo Nav START -->
@@ -41,7 +39,7 @@
             <div class="container">
                 <!-- Logo START -->
                 <a class="navbar-brand" href="{{ route('index') }}">
-                    <img class="light-mode-item navbar-brand-item" src="{{ asset('assets/images/logo.svg') }}"
+                    <img class="light-mode-item navbar-brand-item h-200px" src="{{ asset('assets/images/logo.png') }}"
                         alt="logo">
                 </a>
                 <!-- Logo END -->
@@ -70,10 +68,12 @@
                 <div class="navbar-collapse collapse" id="navbarCollapse">
                     <ul class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto p-2 p-xl-0">
                         <!-- Nav item -->
-                        <li class="nav-item"> <a class="nav-link {{ Request::path() == '/' ? 'active' : '' }}" href="{{ route('index') }}">Accueil</a> </li>
+                        <li class="nav-item"> <a class="nav-link {{ Request::path() == '/' ? 'active' : '' }}"
+                                href="{{ route('index') }}">Accueil</a> </li>
 
                         <!-- Nav item-->
-                        <li class="nav-item"> <a class="nav-link" href="#">A Propos</a> </li>
+                        <li class="nav-item"> <a class="nav-link {{ Request::path() == 'about' ? 'active' : '' }}"
+                                href="{{ route('about') }}">A Propos</a> </li>
 
                         <!-- Nav item -->
                         <li class="nav-item"> <a class="nav-link" href="#">Covoiturage</a> </li>
@@ -82,7 +82,8 @@
                         <li class="nav-item"> <a class="nav-link" href="#">Service Routier</a> </li>
 
                         <!-- Nav item Cabs -->
-                        <li class="nav-item"> <a class="nav-link {{ Request::path() == 'contact' ? 'active' : '' }}" href="{{ route('contact.index') }}">Contact</a></li>
+                        <li class="nav-item"> <a class="nav-link {{ Request::path() == 'contact' ? 'active' : '' }}"
+                                href="{{ route('contact.index') }}">Contact</a></li>
                     </ul>
                 </div>
                 <!-- Main navbar END -->
@@ -96,19 +97,44 @@
                         <a class="avatar avatar-sm p-2" href="#" id="profileDropdown" role="button"
                             data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            {{-- <img class="avatar-img rounded-2" src="assets/images/avatar/01.jpg" alt="avatar"> --}}
-                            <i class="fa-solid fa-user rounded-2" style="font-size: 20px"></i>
+                            @auth
+                                <div>
+                                    <img class="avatar-img rounded-circle shadow"
+                                        src="{{ asset(Auth::user()->avatar) }}" alt="avatar">
+                                </div>
+                            @else
+                                <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
+                            @endauth
                         </a>
 
                         <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3"
                             aria-labelledby="profileDropdown">
-                            <!-- Links -->
-                            <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Connexion</a></li>
+                            <!-- Vérifiez si l'utilisateur est authentifié -->
+                            @auth
+                                <!-- Liens pour les utilisateurs authentifiés -->
+                                @if (Auth::user()->type === 'conducteur')
+                                    <li><a class="dropdown-item" href="{{ route('home') }}">Tableau de bord</a></li>
+                                @elseif (Auth::user()->type === 'passager')
+                                    <li><a class="dropdown-item" href="{{ route('contact.index') }}">Tableau de bord</a>
+                                    </li>
+                                @endif
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Déconnexion</button>
+                                    </form>
+                                </li>
+                            @else
+                                <!-- Liens pour les invités -->
+                                <li><a class="dropdown-item" href="{{ route('register') }}">Inscription</a></li>
+                                <li><a class="dropdown-item" href="{{ route('login') }}">Connexion</a></li>
+                            @endauth
                         </ul>
+
                     </li>
                     <!-- Profile dropdown END -->
                 </ul>
+
                 <!-- Profile and Notification START -->
 
             </div>
@@ -119,9 +145,8 @@
 
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
-
         @yield('content')
-
+         @include('notify::components.notify')
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 
@@ -136,11 +161,12 @@ Footer START -->
                 <div class="col-lg-4">
                     <!-- logo -->
                     <a href="index.html">
-                        <img class="h-40px" src="assets/images/logo-light.svg" alt="logo">
+                        <img class="h-40px" src="{{ asset('assets/images/logo-light.svg') }}" alt="logo">
                     </a>
-                    <p class="my-3 text-body-secondary">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                        unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                    <p class="my-3 text-body-secondary">Matuacm, une plateforme innovante, rend le covoiturage entre
+                        particuliers facile et convivial. Elle relie les conducteurs disposant de places libres à des
+                        passagers partageant la même destination, offrant une solution de déplacement écologique et
+                        économique. </p>
                     <p class="mb-2"><a href="#" class="text-body-secondary text-primary-hover"><i
                                 class="bi bi-telephone me-2"></i>+237 655 299168 / +237 653 335 285</a> </p>
                     <p class="mb-0"><a href="#" class="text-body-secondary text-primary-hover"><i
@@ -157,12 +183,13 @@ Footer START -->
                             <ul class="nav flex-column text-primary-hover">
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="{{ route('index') }}">Accueil</a></li>
-                                <li class="nav-item"><a class="nav-link text-body-secondary" href="#">A
+                                <li class="nav-item"><a class="nav-link text-body-secondary"
+                                        href="{{ route('about') }}">A
                                         Propos</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="#">Covoiturage</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Contact</a></li>
+                                        href="{{ route('contact.index') }}">Contact</a></li>
                             </ul>
                         </div>
 
@@ -194,15 +221,15 @@ Footer START -->
                 <div class="col-sm-7 col-md-6 col-lg-4">
                     <h5 class="text-white mb-2">Paiement & Securité</h5>
                     <ul class="list-inline mb-0 mt-3">
-                        <li class="list-inline-item"> <a href="#"><img src="assets/images/element/paypal.svg"
-                                    class="h-30px" alt=""></a></li>
-                        <li class="list-inline-item"> <a href="#"><img src="assets/images/element/visa.svg"
-                                    class="h-30px" alt=""></a></li>
                         <li class="list-inline-item"> <a href="#"><img
-                                    src="assets/images/element/mastercard.svg" class="h-30px" alt=""></a>
-                        </li>
+                                    src="{{ asset('assets/images/element/paypal.svg') }}" class="h-30px"
+                                    alt=""></a></li>
                         <li class="list-inline-item"> <a href="#"><img
-                                    src="assets/images/element/expresscard.svg" class="h-30px" alt=""></a>
+                                    src="{{ asset('assets/images/element/visa.svg') }}" class="h-30px"
+                                    alt=""></a></li>
+                        <li class="list-inline-item"> <a href="#"><img
+                                    src="{{ asset('assets/images/element/mobile-money.jpg') }}" class="h-30px"
+                                    alt=""></a>
                         </li>
                     </ul>
                 </div>
@@ -217,6 +244,8 @@ Footer START -->
                                 href="#"><i class="fab fa-fw fa-twitter"></i></a> </li>
                         <li class="list-inline-item"> <a class="btn btn-sm shadow px-2 bg-linkedin mb-0"
                                 href="#"><i class="fab fa-fw fa-linkedin-in"></i></a> </li>
+                        <li class="list-inline-item"> <a class="btn btn-sm shadow px-2 bg-instagram mb-0"
+                                href="#"><i class="fab fa-fw fa-instagram"></i></a> </li>
                     </ul>
                 </div>
             </div>
@@ -238,7 +267,10 @@ Footer START -->
                                 <li class="list-inline-item me-0"><a class="nav-link text-body-secondary py-1"
                                         href="#">Police de confidentialité</a></li>
                                 <li class="list-inline-item me-0"><a class="nav-link text-body-secondary py-1"
-                                        href="#">Condition d'utilisation</a></li>
+                                        href="#">Condition générale d'utilisation</a></li>
+
+                                <li class="list-inline-item me-0"><a class="nav-link text-body-secondary py-1"
+                                        href="#">Politique d'annulation</a></li>
                             </ul>
                         </div>
                     </div>
@@ -261,6 +293,9 @@ Footer START -->
     <!-- ThemeFunctions -->
     <script src="{{ asset('assets/js/functions.js') }}"></script>
 
+    <x-notify::notify />
+    @notifyJs
+    @stack('js')
 </body>
 
 </html>
