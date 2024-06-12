@@ -51,5 +51,6 @@ Route::middleware('auth')->prefix('drive')->group(function (){
         Route::post('trajets', 'store')->name('trajets.store');
         Route::put('tarjets/{trajet}', 'update')->name('trajets.update');
         Route::delete('trajets/{trajet}', 'destroy')->name('trajets.destroy');
+        Route::patch('trajets/{trajet}/toggle', 'changeTrajetStatus')->name('trajets.changeStatus');
     });
 });

@@ -85,10 +85,23 @@
                                                 <!-- dropdown button -->
                                                 <ul class="dropdown-menu dropdown-menu-end min-w-auto shadow rounded"
                                                     aria-labelledby="dropdownAction4">
-                                                    <li><a class="dropdown-item" href="#"><i
-                                                                class="bi bi-check-circle me-1"></i>Ouverir</a></li>
-                                                    <li><a class="dropdown-item" href="#"><i
-                                                                class="bi bi-slash-circle me-1"></i>Fermer</a></li>
+                                                    <form action="{{ route('trajets.changeStatus', $trajet->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        @if ($trajet->status)
+                                                            <li><button type="submit"
+                                                                    class="dropdown-item btn btn-success"><i
+                                                                        class="bi bi-check-circle me-1"></i>Fermé</button>
+                                                            </li>
+                                                        @else
+                                                            <li><button type="submit"
+                                                                    class="dropdown-item btn btn-success"><i
+                                                                        class="bi bi-check-circle me-1"></i>Ouverir</button>
+                                                            </li>
+                                                        @endif
+
+                                                    </form>
                                                 </ul>
                                             </div>
                                             <!-- Title -->
@@ -96,8 +109,20 @@
                                                 <a href="#">{{ $trajet->point_depart }} -
                                                     {{ $trajet->destination }}</a>
                                             </h5>
-                                            <small><i class="bi bi-calendar me-2"></i>{{ $trajet->date_depart }} à 
+                                            <small><i class="bi bi-calendar me-2"></i>{{ $trajet->date_depart }} à
                                                 {{ $trajet->heure_depart }}</small>
+                                            <small class="mt-1">
+                                                @if ($trajet->status)
+                                                    <a href="#" class="badge text-bg-success"><i
+                                                            class="fas fa-circle me-2 small fw-bold"></i>
+                                                        {{ $trajet->status ? 'Ouvert' : 'Fermé' }} </a>
+                                                @else
+                                                    <a href="#" class="badge text-bg-danger"><i
+                                                            class="fas fa-circle me-2 small fw-bold"></i>
+                                                        {{ $trajet->status ? 'Ouvert' : 'Fermé' }} </a>
+                                                @endif
+                                            </small>
+
 
                                             <!-- Price and Button -->
                                             <div

@@ -54,7 +54,7 @@
                                 <li class="nav-item"> <a class="nav-link" href="#"><i
                                             class="bi bi-star fa-fw me-1"></i>Reviews</a></li>
 
-                                <li> <a class="nav-link" href="agent-settings.html"><i
+                                <li> <a class="nav-link" href="#l"><i
                                             class="bi bi-gear fa-fw me-1"></i>Paramètre</a></li>
                             </ul>
                         </div>

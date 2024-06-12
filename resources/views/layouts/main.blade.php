@@ -160,8 +160,8 @@ Footer START -->
                 <!-- Widget 1 START -->
                 <div class="col-lg-4">
                     <!-- logo -->
-                    <a href="index.html">
-                        <img class="h-40px" src="{{ asset('assets/images/logo-light.svg') }}" alt="logo">
+                    <a href="{{ route('index') }}"> <!-- //TODO:mettre le logo sur le footer -->
+                        {{-- <img class="h-40px" src="{{ asset('assets/images/logo-light.svg') }}" alt="logo"> --}}
                     </a>
                     <p class="my-3 text-body-secondary">Matuacm, une plateforme innovante, rend le covoiturage entre
                         particuliers facile et convivial. Elle relie les conducteurs disposant de places libres à des

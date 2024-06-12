@@ -116,7 +116,7 @@
                     <div class="col-12">
                         <label class="form-label">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" rows="2" placeholder="description"
-                            name="description">{{ old('description') }}</textarea>
+                            name="description">{{ $trajet->description }}</textarea>
                         <p class="small mb-0"><b>Note:</b>Donnez une description du vehicule ou tout autre informations.
                         </p>
                         @error('description')

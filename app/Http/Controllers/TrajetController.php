@@ -14,7 +14,6 @@ class TrajetController extends Controller
 {
     //TODO: Envoyer un message a tous les passagers apres la publication d'un trajets
     //TODO: Envoyer un message a l'utilisateur apres verification de son compte
-    //TODO: Changer le status d'un trajet(ouverir ou fermer)
 
     /**
      * affichage de la vue de creation d'un trajet
@@ -116,6 +115,27 @@ class TrajetController extends Controller
             emotify('error', 'Une erreur est survenue lors de la suppression de votre trajet.');
             return back();
         }
+    }
+
+    /**
+     * Hamdle change status of trajet (Ouvrir)
+     * 
+     * @param \App\Models\Trajet $trajet
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function changeTrajetStatus(Trajet $trajet): RedirectResponse
+    {
+        if (!$trajet) {
+            emotify('error', 'Le trajet que rechercher n\'existe pas.');
+            return back();
+        }
+
+        $trajet->update([
+            'status' => !$trajet->status
+        ]);
+
+        emotify('success', "Le status de votre trajet a été mis à jour avec succès.");
+        return back();
     }
 
     /**
