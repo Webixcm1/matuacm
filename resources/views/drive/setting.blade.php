@@ -13,7 +13,7 @@
                     <li class="nav-item"> <a class="nav-link mb-0 active" data-bs-toggle="tab" href="#tab-1"><i
                                 class="fas fa-cog fa-fw me-2"></i>Editer le Profile</a> </li>
                     <li class="nav-item"> <a class="nav-link mb-0" data-bs-toggle="tab" href="#tab-3"><i
-                                class="fas fa-user-circle fa-fw me-2"></i>Paramètre du Compte</a> </li>
+                                class="fas fa-user-circle fa-fw me-2"></i>Journal d'Activité</a> </li>
                 </ul>
             </div>
         </div>
@@ -197,141 +197,6 @@
                 <!-- Tab content 3 START -->
                 <div class="tab-pane" id="tab-3">
                     <div class="row g-4">
-                        <!-- Security settings START -->
-                        <div class="col-12">
-                            <div class="card border">
-                                <div class="card-header border-bottom">
-                                    <h5 class="card-header-title">Security settings</h5>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Two step -->
-                                    <form class="mb-3">
-                                        <h6>Two-factor authentication</h6>
-                                        <label class="form-label">Add a phone number to set up two-factor
-                                            authentication</label>
-                                        <input type="text" class="form-control mb-2"
-                                            placeholder="Enter your mobile number">
-                                        <button class="btn btn-sm btn-primary mb-0">Send Code</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Security settings END -->
-
-                        <!-- Linked account START -->
-                        <div class="col-lg-6">
-                            <div class="card border rounded-3">
-                                <!-- Card header -->
-                                <div class="card-header border-bottom">
-                                    <h5 class="card-header-title">Linked account</h5>
-                                </div>
-                                <!-- Card body START -->
-                                <div class="card-body pb-0">
-                                    <!-- Google -->
-                                    <div
-                                        class="position-relative mb-4 d-sm-flex bg-success bg-opacity-10 border border-success p-3 rounded">
-                                        <!-- Title and content -->
-                                        <h2 class="fs-1 mb-0 me-3"><i class="fab fa-google text-google-icon"></i></h2>
-                                        <div>
-                                            <div
-                                                class="position-absolute top-0 start-100 translate-middle bg-white rounded-circle lh-1 h-20px">
-                                                <i class="bi bi-check-circle-fill text-success fs-5"></i>
-                                            </div>
-                                            <h6 class="mb-1">Google</h6>
-                                            <p class="mb-1 small">You are successfully connected to your Google account</p>
-                                            <!-- Button -->
-                                            <button type="button" class="btn btn-sm btn-danger mb-0">Invoke</button>
-                                            <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
-                                        </div>
-                                    </div>
-
-                                    <!-- Linkedin -->
-                                    <div class="mb-4 d-sm-flex border p-3 rounded">
-                                        <!-- Title and content -->
-                                        <h2 class="fs-1 mb-0 me-3"><i class="fab fa-linkedin-in text-linkedin"></i></h2>
-                                        <div>
-                                            <h6 class="mb-1">Linkedin</h6>
-                                            <p class="mb-1 small">Connect with Linkedin account for a personalized
-                                                experience</p>
-                                            <!-- Button -->
-                                            <button type="button" class="btn btn-sm btn-primary mb-0">Connect
-                                                Linkedin</button>
-                                            <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
-                                        </div>
-                                    </div>
-
-                                    <!-- Facebook -->
-                                    <div class="mb-4 d-sm-flex border p-3 rounded">
-                                        <!-- Title and content -->
-                                        <h2 class="fs-1 mb-0 me-3"><i class="fab fa-facebook text-facebook"></i></h2>
-                                        <div>
-                                            <h6 class="mb-1">Facebook</h6>
-                                            <p class="mb-1 small">Connect with Facebook account for a personalized
-                                                experience</p>
-                                            <!-- Button -->
-                                            <button type="button" class="btn btn-sm btn-primary mb-0">Connect
-                                                Facebook</button>
-                                            <a href="#" class="btn btn-sm btn-link text-body mb-0">Learn more</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card body END -->
-                            </div>
-                        </div>
-                        <!-- Linked account END -->
-
-                        <!-- Social account END -->
-                        <div class="col-lg-6">
-                            <div class="card border rounded-3">
-                                <!-- Card header -->
-                                <div class="card-header border-bottom">
-                                    <h5 class="card-header-title">Social media profile</h5>
-                                </div>
-                                <!-- Card body START -->
-                                <div class="card-body">
-                                    <!-- Facebook username -->
-                                    <div class="mb-3">
-                                        <label class="form-label"><i class="fab fa-facebook text-facebook me-2"></i>Enter
-                                            facebook username</label>
-                                        <input class="form-control" type="text" value="loristev"
-                                            placeholder="Enter username">
-                                    </div>
-
-                                    <!-- Twitter username -->
-                                    <div class="mb-3">
-                                        <label class="form-label"><i class="bi bi-twitter text-twitter me-2"></i>Enter
-                                            twitter username</label>
-                                        <input class="form-control" type="text" value="loristev"
-                                            placeholder="Enter username">
-                                    </div>
-
-                                    <!-- Instagram username -->
-                                    <div class="mb-3">
-                                        <label class="form-label"><i
-                                                class="fab fa-instagram text-instagram-gradient me-2"></i>Enter instagram
-                                            username</label>
-                                        <input class="form-control" type="text" value="loristev"
-                                            placeholder="Enter username">
-                                    </div>
-
-                                    <!-- Youtube -->
-                                    <div class="mb-3">
-                                        <label class="form-label"><i class="fab fa-youtube text-youtube me-2"></i>Add your
-                                            youtube profile URL</label>
-                                        <input class="form-control" type="text"
-                                            value="https://www.youtube.com/in/Booking-05620abc"
-                                            placeholder="Enter username">
-                                    </div>
-
-                                    <!-- Button -->
-                                    <div class="d-flex justify-content-end mt-4">
-                                        <button type="button" class="btn btn-primary mb-0">Save change</button>
-                                    </div>
-                                </div>
-                                <!-- Card body END -->
-                            </div>
-                        </div>
-                        <!-- Social account END -->
 
                         <!-- Active logs START -->
                         <div class="col-12">
@@ -400,14 +265,6 @@
                                         </table>
                                     </div>
                                     <!-- Table END -->
-
-                                    <!-- Active session -->
-                                    <form class="mt-4">
-                                        <h6 class="mb-0">Active sessions</h6>
-                                        <p class="mb-2">Selecting "Sign out" will sign you out from all devices except
-                                            this one. This can take up to 10 minutes.</p>
-                                        <button class="btn btn-sm btn-danger mb-0">Sign Out of all devices</button>
-                                    </form>
                                 </div>
                                 <!-- Card body END -->
                             </div>
