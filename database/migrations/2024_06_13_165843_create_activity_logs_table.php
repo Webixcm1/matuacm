@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('activity_logs', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained('users');
+            $table->string('ip_address', 45)->nullable();
+            $table->string('browser')->nullable();
+            $table->string('os')->nullable();
+            $table->string('action')->nullable();
+            $table->text('details')->nullable();
             $table->timestamps();
         });
     }
