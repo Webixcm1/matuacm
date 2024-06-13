@@ -97,7 +97,7 @@
                                                         @else
                                                             <li><button type="submit"
                                                                     class="dropdown-item btn btn-success"><i
-                                                                        class="bi bi-check-circle me-1"></i>Ouverir</button>
+                                                                        class="bi bi-check-circle me-1"></i>Ouvrir</button>
                                                             </li>
                                                         @endif
 
@@ -178,7 +178,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Êtes-vous sr de vouloir supprimer ce trajet? L'opération est ireversible.</p>
+                    <p>Êtes-vous sûre de vouloir supprimer ce trajet? L'opération est ireversible.</p>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-outline-light" data-dismiss="modal">Annuler</button>

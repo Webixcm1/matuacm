@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Drive\AccueilController;
+use App\Http\Controllers\Drive\SettingController;
 use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\VerifyAccountController;
 use App\Http\Middleware\VerifyAccountMiddleware;
@@ -52,5 +53,10 @@ Route::middleware('auth')->prefix('drive')->group(function (){
         Route::put('tarjets/{trajet}', 'update')->name('trajets.update');
         Route::delete('trajets/{trajet}', 'destroy')->name('trajets.destroy');
         Route::patch('trajets/{trajet}/toggle', 'changeTrajetStatus')->name('trajets.changeStatus');
+    });
+
+    //SETTING ROUTE
+    Route::controller(SettingController::class)->group(function (){
+        Route::get('settings', 'index')->name('stettings.index');
     });
 });

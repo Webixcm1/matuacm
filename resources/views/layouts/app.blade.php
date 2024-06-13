@@ -16,12 +16,12 @@
                 <!-- Avatar and info START -->
                 <div class="d-sm-flex align-items-center">
                     <div class="avatar avatar-xl mb-2 mb-sm-0">
-                        <img class="avatar-img rounded-circle" src="{{ asset(Auth::user()->avatar) }}"
-                            alt="">
+                        <img class="avatar-img rounded-circle" src="{{ asset(Auth::user()->avatar) }}" alt="">
                     </div>
                     <h4 class="mb-2 mb-sm-0 ms-sm-3"><span class="fw-light">Hi</span> {{ Auth::user()->nom }}</h4>
 
-                    <a href="{{ route('trajets.create') }}" class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"><i
+                    <a href="{{ route('trajets.create') }}"
+                        class="btn btn-sm btn-primary-soft mb-0 ms-auto flex-shrink-0"><i
                             class="bi bi-plus-lg fa-fw me-2"></i>Publier Un Trajet</a>
                 </div>
                 <!-- Avatar and info START -->
@@ -45,8 +45,9 @@
                         <div class="navbar navbar-expand-xl">
                             <ul class="navbar-nav navbar-offcanvas-menu">
 
-                                <li class="nav-item"> <a class="nav-link {{ Request::path('home') ? 'active' : '' }}" href="{{ route('home') }}"><i
-                                            class="bi bi-house-door fa-fw me-1"></i>Tableau de bord</a> </li>
+                                <li class="nav-item"> <a class="nav-link {{ request()->is('trajets*') || request()->is('home*') ? 'active' : '' }}"
+                                        href="{{ route('home') }}"><i class="bi bi-house-door fa-fw me-1"></i>Tableau de
+                                        bord</a> </li>
 
                                 <li class="nav-item"> <a class="nav-link" href="#"><i
                                             class="bi bi-bookmark-heart fa-fw me-1"></i>Reservations</a> </li>
@@ -54,7 +55,8 @@
                                 <li class="nav-item"> <a class="nav-link" href="#"><i
                                             class="bi bi-star fa-fw me-1"></i>Reviews</a></li>
 
-                                <li> <a class="nav-link" href="#l"><i
+                                <li class="nav-item"> <a class="nav-link {{ request()->is('settings*') ? 'active' : '' }}"
+                                        href="{{ route('stettings.index') }}"><i
                                             class="bi bi-gear fa-fw me-1"></i>Paramètre</a></li>
                             </ul>
                         </div>
@@ -71,7 +73,8 @@
             @if (Auth::user()->status == false)
                 <div class="alert alert-info" role="alert">
                     <i class="bi bi-exclamation-octagon-fill me-2"></i> Veuillez vérifier votre compte pour pouvoir
-                    publier un trajet sur Matuacm. <a href="{{ route('verify-account') }}" class="text-info"><strong>Vérifiez-le
+                    publier un trajet sur Matuacm. <a href="{{ route('verify-account') }}"
+                        class="text-info"><strong>Vérifiez-le
                             maintenant</strong></a>.
                 </div>
             @endif
