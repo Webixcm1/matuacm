@@ -160,8 +160,8 @@ Footer START -->
                 <!-- Widget 1 START -->
                 <div class="col-lg-4">
                     <!-- logo -->
-                    <a href="index.html">
-                        <img class="h-40px" src="{{ asset('assets/images/logo-light.svg') }}" alt="logo">
+                    <a href="{{ route('index') }}"> <!-- //TODO:mettre le logo sur le footer -->
+                        {{-- <img class="h-40px" src="{{ asset('assets/images/logo-light.svg') }}" alt="logo"> --}}
                     </a>
                     <p class="my-3 text-body-secondary">Matuacm, une plateforme innovante, rend le covoiturage entre
                         particuliers facile et convivial. Elle relie les conducteurs disposant de places libres à des
@@ -198,9 +198,9 @@ Footer START -->
                             <h5 class="text-white mb-2 mb-md-4">Link</h5>
                             <ul class="nav flex-column text-primary-hover">
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Inscription</a></li>
+                                        href="{{ route('register') }}">Inscription</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Connexion</a></li>
+                                        href="{{ route('login') }}">Connexion</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary" href="#">Police de
                                         confidentialité</a></li>
                                 </li>
@@ -282,6 +282,7 @@ Footer START -->
 
     <!-- Back to top -->
     <div class="back-top"></div>
+    <script src="{{ asset('assets/js/jquery/jquery.min.js') }}"></script>
 
     <!-- Bootstrap JS -->
     <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -295,7 +296,7 @@ Footer START -->
 
     <x-notify::notify />
     @notifyJs
-    @stack('js')
+    @stack('scripts')
 </body>
 
 </html>

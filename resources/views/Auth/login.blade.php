@@ -43,7 +43,9 @@ Main Content START -->
                                 <!-- Vector Image -->
                                 <div class="col-lg-6 d-flex align-items-center order-2 order-lg-1">
                                     <div class="p-3 p-lg-5">
-                                        <img src="{{ asset('assets/images/element/signin.svg') }}" alt="">
+                                        <a href="{{ route('index') }}">
+                                            <img src="{{ asset('assets/images/element/signin.svg') }}" alt="">
+                                        </a>
                                     </div>
                                     <!-- Divider -->
                                     <div class="vr opacity-1 d-none d-lg-block"></div>
@@ -52,11 +54,6 @@ Main Content START -->
                                 <!-- Information -->
                                 <div class="col-lg-6 order-1">
                                     <div class="p-4 p-sm-7">
-                                        <!-- Logo -->
-                                        <a href="{{ route('index') }}">
-                                            <img class="h-50px mb-4" src="{{ asset('assets/images/logo-icon.svg') }}"
-                                                alt="logo">
-                                        </a>
                                         <!-- Title -->
                                         <h1 class="mb-2 h3">Heureux de vous revoir!!</h1>
                                         <p class="mb-0">Pas de compte?<a href="{{ route('register') }}"> Créer votre
