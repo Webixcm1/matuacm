@@ -14,6 +14,7 @@ class TrajetController extends Controller
 {
     //TODO: Envoyer un message a tous les passagers apres la publication d'un trajets
     //TODO: Envoyer un message a l'utilisateur apres verification de son compte
+    //TODO: mettre un bouton pour demarrer un trajet. lorsqu'un trajet est lancé on doit estimer le temps de fin
 
     /**
      * affichage de la vue de creation d'un trajet
