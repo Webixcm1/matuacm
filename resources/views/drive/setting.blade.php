@@ -31,83 +31,75 @@
                         <div class="col-12">
                             <div class="card border">
                                 <div class="card-header border-bottom">
-                                    <h5 class="card-header-title">Modification du Profile</h5>
+                                    <h5 class="card-header-title">Profile</h5>
                                 </div>
                                 <div class="card-body">
 
-                                    <form action="" method="post">
+                                    <form action="{{ route('settings.update.profile', Auth::user()->id) }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        @method('PATCH')
+
                                         <!-- Nom -->
                                         <div class="mb-3">
-                                            <label class="form-label">Nom</label>
-                                            <input type="text" class="form-control @error('nom') is-invalid @enderror"
-                                                value="{{ Auth::user()->nom }}" name="nom">
-                                            @error('nom')
-                                                <span class="text-danger">Ce champ est obligatoire</span>
-                                            @enderror
+                                            <label for="nom" class="form-label">Nom</label>
+                                            <input type="text" id="nom" class="form-control"
+                                                value="{{ Auth::user()->nom }}" name="nom" disabled>
                                         </div>
 
                                         <!-- Prenom -->
                                         <div class="mb-3">
-                                            <label class="form-label">Prenom</label>
-                                            <input type="text" class="form-control" value="{{ Auth::user()->prenom }}"
-                                                name="@error('prenom') is-invalid @enderror">
-                                            @error('prenom')
-                                                <span class="text-danger">Ce champ est obligatoire</span>
-                                            @enderror
+                                            <label for="prenom" class="form-label">Prenom</label>
+                                            <input type="text" id="prenom" class="form-control"
+                                                value="{{ Auth::user()->prenom }}" name="prenom" disabled>
                                         </div>
+
+                                        <!-- Email -->
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" id="email" class="form-control"
+                                                value="{{ Auth::user()->email }}" disabled>
+                                        </div>
+
                                         <!-- Profile picture -->
                                         <div class="mb-3">
-                                            <label class="form-label">Avatar</label>
+                                            <label for="avatar" class="form-label">Avatar</label>
                                             <!-- Avatar upload START -->
                                             <div class="d-flex align-items-center">
-                                                <label class="position-relative me-4" for="uploadfile-1"
+                                                <label class="position-relative me-4" for="avatar"
                                                     title="Replace this pic">
-                                                    <!-- Avatar place holder -->
+                                                    <!-- Avatar placeholder -->
                                                     <span class="avatar avatar-xl">
                                                         <img id="uploadfile-1-preview"
                                                             class="avatar-img rounded-circle border border-white border-3 shadow"
                                                             src="{{ asset(Auth::user()->avatar) }}" alt="avatar">
                                                     </span>
                                                 </label>
-                                                <!-- Upload button -->
-                                                <label class="btn btn-sm btn-primary-soft mb-0"
-                                                    for="uploadfile-1">Change</label>
-                                                <input id="uploadfile-1" class="form-control d-none" type="file">
                                             </div>
+                                            <input id="avatar" class="form-control" type="file" name="avatar"
+                                                accept="image/jpg, image/jpeg, image/png">
+                                            @error('avatar')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
                                             <!-- Avatar upload END -->
                                         </div>
-                                        <!-- Email id -->
-                                        <div class="mb-3">
-                                            <label class="form-label">Email</label>
-                                            <input type="email" class="form-control" value="{{ Auth::user()->email }}"
-                                                disabled>
-                                        </div>
+
                                         <!-- Mobile number -->
                                         <div class="mb-3">
-                                            <label class="form-label">Téléphone</label>
-                                            <input type="text" class="form-control @error('telephone') is-invalid @enderror"
+                                            <label for="telephone" class="form-label">Téléphone</label>
+                                            <input type="text" id="telephone" class="form-control"
                                                 value="{{ Auth::user()->telephone }}" name="telephone">
                                             @error('telephone')
-                                                <span class="text-danger">Ce champ est obligatoire</span>
+                                                <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
-                                        <!-- Location -->
-                                        <div class="mb-3">
-                                            <label class="form-label">Adresse</label>
-                                            <input class="form-control" type="text"
-                                                value="{{ Auth::user()->conducteur->adresse }}" name="adresse">
-                                        </div>
-                                        <!-- City -->
-                                        <div class="mb-3">
-                                            <label class="form-label">Ville</label>
-                                            <input class="form-control" type="text"
-                                                value="{{ Auth::user()->conducteur->ville }}">
-                                        </div>
+
                                         <!-- Save button -->
                                         <div class="d-flex justify-content-end mt-4">
                                             <button type="submit" class="btn btn-primary">Sauvegarder</button>
                                         </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -121,10 +113,18 @@
                                     <p class="mb-0 small">Votre adresse mail actuelle est : <span class="text-primary">
                                             {{ Auth::user()->email }} </span></p>
                                 </div>
-                                <form class="card-body">
+                                <form class="card-body" action="{{ route('settings.update.email', Auth::user()->id) }}"
+                                    method="POST">
+                                    @csrf
+                                    @method('PATCH')
+
                                     <!-- Email -->
                                     <label class="form-label">Entrer la nouvelle adresse email</label>
-                                    <input type="email" class="form-control" placeholder="test@test.com">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
+                                        placeholder="test@test.com" name="email">
+                                    @error('email')
+                                        <span class="text-danger">Ce champ est obligatoire et doit être unique</span>
+                                    @enderror
 
                                     <div class="text-end mt-3">
                                         <button type="submit" class="btn btn-primary mb-0">Sauvegarder</button>
@@ -143,22 +143,36 @@
                                             {{ Auth::user()->email }} </span></p>
                                 </div>
                                 <!-- Card body START -->
-                                <form class="card-body">
+                                <form class="card-body"
+                                    action="{{ route('settings.update.password', Auth::user()->id) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+
                                     <!-- Current password -->
                                     <div class="mb-3">
                                         <label class="form-label">Mot de passe actuel</label>
-                                        <input class="form-control" type="password" placeholder="mot de passe actuel">
+                                        <input class="form-control @error('current_password') is-invalid @enderror"
+                                            type="password" placeholder="mot de passe actuel" name="current_password">
+                                        @error('current_password')
+                                            <span class="text-danger">Ce champ est obligatoire</span>
+                                        @enderror
                                     </div>
                                     <!-- New password -->
                                     <div class="mb-3">
                                         <label class="form-label">Nouveau mot de passe</label>
                                         <div class="input-group">
-                                            <input class="form-control fakepassword" type="password" id="psw-input"
-                                                placeholder="nouveau mot de passe">
+                                            <input
+                                                class="form-control fakepassword @error('password') is-invalid @enderror"
+                                                type="password" id="psw-input" placeholder="nouveau mot de passe"
+                                                name="password">
                                             <span class="input-group-text p-0 bg-transparent">
                                                 <i class="fakepasswordicon fas fa-eye-slash cursor-pointer p-2"></i>
                                             </span>
+
                                         </div>
+                                        @error('password')
+                                            <span class="text-danger"> {{ $message }} </span>
+                                        @enderror
                                     </div>
                                     <!-- Confirm -->
                                     <div>

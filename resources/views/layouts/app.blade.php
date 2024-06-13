@@ -56,7 +56,7 @@
                                             class="bi bi-star fa-fw me-1"></i>Reviews</a></li>
 
                                 <li class="nav-item"> <a class="nav-link {{ request()->is('settings*') ? 'active' : '' }}"
-                                        href="{{ route('stettings.index') }}"><i
+                                        href="{{ route('settings.index') }}"><i
                                             class="bi bi-gear fa-fw me-1"></i>Paramètre</a></li>
                             </ul>
                         </div>

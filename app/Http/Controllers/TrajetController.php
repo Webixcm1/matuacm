@@ -138,9 +138,7 @@ class TrajetController extends Controller
         return back();
     }
 
-    /**
-     * 
-     */
+    
     /**
      * Handle image upload and return the image path
      *

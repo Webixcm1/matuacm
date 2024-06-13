@@ -57,6 +57,9 @@ Route::middleware('auth')->prefix('drive')->group(function (){
 
     //SETTING ROUTE
     Route::controller(SettingController::class)->group(function (){
-        Route::get('settings', 'index')->name('stettings.index');
+        Route::get('settings', 'index')->name('settings.index');
+        Route::patch('settings/{user}/updateProfile', 'updateProfile')->name('settings.update.profile');
+        Route::patch('settings/{user}/updateEmail', 'updateEmail')->name('settings.update.email');
+        Route::patch('settings/{user}/updatePassword', 'updatePassword')->name('settings.update.password');
     });
 });
