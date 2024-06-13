@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Drive\AccueilController;
+use App\Http\Controllers\Drive\SettingController;
 use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\VerifyAccountController;
 use App\Http\Middleware\VerifyAccountMiddleware;
@@ -47,6 +48,18 @@ Route::middleware('auth')->prefix('drive')->group(function (){
     //TRAJET ROUTE
     Route::controller(TrajetController::class)->group(function () {
         Route::get('trajets', 'create')->name('trajets.create')->middleware('checkVerify');
+        Route::get('trajets/{trajet}/edit', 'edit')->name('trajets.edit');
         Route::post('trajets', 'store')->name('trajets.store');
+        Route::put('tarjets/{trajet}', 'update')->name('trajets.update');
+        Route::delete('trajets/{trajet}', 'destroy')->name('trajets.destroy');
+        Route::patch('trajets/{trajet}/toggle', 'changeTrajetStatus')->name('trajets.changeStatus');
+    });
+
+    //SETTING ROUTE
+    Route::controller(SettingController::class)->group(function (){
+        Route::get('settings', 'index')->name('settings.index');
+        Route::patch('settings/{user}/updateProfile', 'updateProfile')->name('settings.update.profile');
+        Route::patch('settings/{user}/updateEmail', 'updateEmail')->name('settings.update.email');
+        Route::patch('settings/{user}/updatePassword', 'updatePassword')->name('settings.update.password');
     });
 });

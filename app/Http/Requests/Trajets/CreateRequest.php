@@ -21,15 +21,25 @@ class CreateRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'date_depart' => 'required|date',
-            'heure_depart' => 'required',
-            'point_depart' => 'required|string',
-            'destination' => 'required|string',
-            'nombre_place' => 'required|numeric',
-            'image' => 'required|image|mimes:png,jpg,jpeg',
-            'prix' => 'required|numeric',
-            'status' => 'required|boolean'
+        $rules = [
+            'date_depart' => 'sometimes|required|date',
+            'heure_depart' => 'sometimes|required',
+            'point_depart' => 'sometimes|required|string',
+            'description' => 'sometimes|required|string',
+            'destination' => 'sometimes|required|string',
+            'nombre_place' => 'sometimes|required|numeric',
+            'prix' => 'sometimes|required|numeric',
+            'status' => 'sometimes|required|boolean'
         ];
+
+        // Si la méthode de la requête est PUT ou PATCH, les champs image ne sont pas obligatoires
+        if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            $rules['image'] = 'sometimes|image|mimes:png,jpg,jpeg';
+        } else {
+            // Sinon, pour les autres méthodes (POST), les champs image sont obligatoires
+            $rules['image'] = 'required|image|mimes:png,jpg,jpeg';
+        }
+
+        return $rules;
     }
 }

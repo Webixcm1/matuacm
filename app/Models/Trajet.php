@@ -22,6 +22,7 @@ class Trajet extends Model
         'image',
         'prix',
         'status',
+        'description',
     ];
 
     public function conducteur(): BelongsTo
