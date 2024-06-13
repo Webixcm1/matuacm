@@ -3,14 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Middleware\VerifyAccountMiddleware;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Drive\AccueilController;
 use App\Http\Controllers\Drive\SettingController;
-use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\VerifyAccountController;
-use App\Http\Middleware\VerifyAccountMiddleware;
 
 //HOME ROUTE
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -62,4 +63,6 @@ Route::middleware('auth')->prefix('drive')->group(function (){
         Route::patch('settings/{user}/updateEmail', 'updateEmail')->name('settings.update.email');
         Route::patch('settings/{user}/updatePassword', 'updatePassword')->name('settings.update.password');
     });
+
+    Route::post('/activities', [ActivityController::class, 'store']);
 });
