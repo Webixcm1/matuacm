@@ -83,7 +83,7 @@
 
                                             <!-- Card title and rating -->
                                             <div class="col-sm-6 col-md-4 col-xl-6">
-                                                <h4 class="card-title mb-2"><a href="#" class="stretched-link">
+                                                <h4 class="card-title mb-2"><a href="{{ route('trips.show', $trajet->id) }}" class="stretched-link">
                                                         {{ $trajet->point_depart }} - {{ $trajet->destination }} </a></h4>
                                                 <!-- Nav divider -->
                                                 <ul class="nav nav-divider h6 fw-normal mb-2">
@@ -163,8 +163,6 @@
                     </div>
                 </div>
                 <!-- Main content END -->
-
-                {{ $trajets->links() }}
             </div> <!-- Row END -->
 
         </div>

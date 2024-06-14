@@ -155,11 +155,12 @@
 
                                             <!-- Card title and rating -->
                                             <div class="col-sm-6 col-md-4 col-xl-6">
-                                                <h4 class="card-title mb-2"><a href="#" class="stretched-link">
+                                                <h4 class="card-title mb-2"><a href="{{ route('trips.show', $trajet->id) }}"
+                                                        class="stretched-link">
                                                         {{ $trajet->point_depart }} - {{ $trajet->destination }} </a></h4>
                                                 <!-- Nav divider -->
                                                 <ul class="nav nav-divider h6 fw-normal mb-2">
-                                                    <li class="nav-item">Par {{ $trajet->conducteur->user->nom }}
+                                                    <li class="nav-item">Publier Par {{ $trajet->conducteur->user->nom }}
                                                         {{ $trajet->conducteur->user->prenom }} </li> &nbsp;
                                                     @if ($trajet->status)
                                                         <li class="badge text-bg-success"><i
@@ -230,8 +231,6 @@
                                 </div>
                                 <!-- Cab item END -->
                             @endforeach
-
-                            
                         @endif
                     </div>
                 </div>

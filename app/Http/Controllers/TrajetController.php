@@ -34,6 +34,17 @@ class TrajetController extends Controller
     }
 
     /**
+     * Display a specific trips in database
+     * 
+     * @param \App\Models\Trajet $trajet
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function showTrip(Trajet $trajet): View
+    {
+        return view('trajets.tripDetail', compact(['trajet']));
+    }
+
+    /**
      * affichage de la vue de creation d'un trajet
      * @return \Illuminate\Contracts\View\View
      */

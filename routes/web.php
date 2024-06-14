@@ -37,9 +37,10 @@ Route::controller(LoginController::class)->group(function () {
 //LOGOUT ROUTE
 Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-//TRAJETS SEARCH AND LIST ROUTE
+//TRAJETS SEARCH, LIST & SHOW ROUTE
 Route::get('trajet', [TrajetController::class, 'search'])->name('trajets.search');
 Route::get('covoiturage', [TrajetController::class, 'listTrips'])->name('trips.list');
+Route::get('covoiturage/{trajet}', [TrajetController::class, 'showTrip'])->name('trips.show');
 
 Route::middleware('auth')->prefix('drive')->group(function (){
     //DRIVE ROUTE
