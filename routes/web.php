@@ -3,14 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Middleware\VerifyAccountMiddleware;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Drive\AccueilController;
 use App\Http\Controllers\Drive\SettingController;
-use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\VerifyAccountController;
-use App\Http\Middleware\VerifyAccountMiddleware;
 
 //HOME ROUTE
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -33,7 +34,12 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login', 'login')->name('login.store');
 });
+
+//LOGOUT ROUTE
 Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+//TRAJETS SEARCH ROUTE
+Route::get('trajet', [TrajetController::class, 'search'])->name('trajets.search');
 
 Route::middleware('auth')->prefix('drive')->group(function (){
     //DRIVE ROUTE
@@ -62,4 +68,11 @@ Route::middleware('auth')->prefix('drive')->group(function (){
         Route::patch('settings/{user}/updateEmail', 'updateEmail')->name('settings.update.email');
         Route::patch('settings/{user}/updatePassword', 'updatePassword')->name('settings.update.password');
     });
+
+    //ACTIVITY ROUTE
+    Route::controller(ActivityController::class)->group(function () {
+        Route::post('settings', 'store')->name('activities.store');
+        Route::post('disconnect/{deviceId}', 'disconnectDevice')->name('disconnect.device');
+    });
+    
 });

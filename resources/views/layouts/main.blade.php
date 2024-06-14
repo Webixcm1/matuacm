@@ -24,6 +24,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/choices/css/choices.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/flatpickr/css/flatpickr.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/nouislider/nouislider.css') }}">
 
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
@@ -290,6 +291,7 @@ Footer START -->
     <!-- Vendors -->
     <script src="{{ asset('assets/vendor/choices/js/choices.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/flatpickr/js/flatpickr.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/nouislider/nouislider.min.js') }}"></script>
 
     <!-- ThemeFunctions -->
     <script src="{{ asset('assets/js/functions.js') }}"></script>

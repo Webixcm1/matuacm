@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Drive;
 
 use App\Models\User;
+use App\Models\ActivityLog;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Log;
@@ -23,7 +24,11 @@ class SettingController extends Controller
      */
     public function index(): View
     {
-        return view('drive.setting');
+        $user_id = auth()->id();
+
+        $activities = ActivityLog::with('user')->where('user_id', $user_id)->latest()->paginate(6);
+
+        return view('drive.setting', compact(['activities']));
     }
 
     /**
