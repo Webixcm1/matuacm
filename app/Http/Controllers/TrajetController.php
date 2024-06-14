@@ -17,6 +17,23 @@ class TrajetController extends Controller
     //TODO: mettre un bouton pour demarrer un trajet. lorsqu'un trajet est lancé on doit estimer le temps de fin
 
     /**
+     * Display all Trips in database
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function listTrips(): View
+    {
+        $trajets = Trajet::with(['conducteur'])->latest()->paginate(4);
+        $trips = Trajet::all();
+        $nombre_trajets = Trajet::count();
+
+        $points_depart = $trips->unique('point_depart')->pluck('point_depart');
+        $destinations = $trips->unique('destination')->pluck('destination');
+
+        return view('trajets.coiturage', compact(['trajets', 'points_depart', 'destinations', 'nombre_trajets']));
+    }
+
+    /**
      * affichage de la vue de creation d'un trajet
      * @return \Illuminate\Contracts\View\View
      */
@@ -59,7 +76,7 @@ class TrajetController extends Controller
      * 
      * @param \App\Models\Trajet $trajets
      * @return \Illuminate\Contracts\View\View
-    */
+     */
     public function edit(Trajet $trajet): View
     {
         if (!$trajet) {
@@ -167,13 +184,13 @@ class TrajetController extends Controller
         if ($destination) {
             $query->where('destination', $destination);
         }
-        
+
         if ($date_depart) {
             $query->whereDate('date_depart', '=', $date_depart);
         }
 
         if ($heure_depart) {
-            $query->whereTime('heure_depart','=', $heure_depart);
+            $query->whereTime('heure_depart', '=', $heure_depart);
         }
 
         $trajets = $query->get();
@@ -184,7 +201,7 @@ class TrajetController extends Controller
         return view('trajets.resultats', compact(['trajets', 'nombre_trajets']));
     }
 
-    
+
     /**
      * Handle image upload and return the image path
      *

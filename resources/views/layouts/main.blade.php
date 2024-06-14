@@ -77,7 +77,9 @@
                                 href="{{ route('about') }}">A Propos</a> </li>
 
                         <!-- Nav item -->
-                        <li class="nav-item"> <a class="nav-link" href="#">Covoiturage</a> </li>
+                        <li class="nav-item"> <a
+                                class="nav-link {{ Request::path() == 'covoiturage' ? 'active' : '' }}"
+                                href=" {{ route('trips.list') }} ">Covoiturage</a> </li>
 
                         <!-- Nav item -->
                         <li class="nav-item"> <a class="nav-link" href="#">Service Routier</a> </li>
@@ -100,8 +102,8 @@
                             aria-expanded="false">
                             @auth
                                 <div>
-                                    <img class="avatar-img rounded-circle shadow"
-                                        src="{{ asset(Auth::user()->avatar) }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle shadow" src="{{ asset(Auth::user()->avatar) }}"
+                                        alt="avatar">
                                 </div>
                             @else
                                 <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
@@ -147,7 +149,7 @@
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
         @yield('content')
-         @include('notify::components.notify')
+        @include('notify::components.notify')
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 
@@ -188,7 +190,7 @@ Footer START -->
                                         href="{{ route('about') }}">A
                                         Propos</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Covoiturage</a></li>
+                                        href="{{ route('trips.list') }}">Covoiturage</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="{{ route('contact.index') }}">Contact</a></li>
                             </ul>

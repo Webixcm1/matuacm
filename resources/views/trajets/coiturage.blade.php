@@ -1,12 +1,11 @@
 @extends('layouts.main')
 
 @section('title')
-    Resultat Recherche - Matuacm - Première plateforme de covoiturage au Cameroun
+    Covoiturage - Matuacm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')
-    <!-- =======================
-                Search START -->
+    <!-- ======================= Search START -->
     <section class="bg-primary">
         <div class="container">
             <div class="row">
@@ -14,12 +13,87 @@
                     <!-- Booking from START -->
                     <div class="form-control-bg-light bg-mode border p-4 rounded-3">
                         <div class="row g-4">
+
                             <!-- Nav tabs START -->
-                            <div class="col-lg-6 d-flex justify-content-center">
-                                <h4 class="text-center">Résultats de votre recherche</h4>
+                            <div class="col-lg-6">
+                                <div class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <div class="form-check form-check-inline active" id="cab-one-way-tab"
+                                        data-bs-toggle="pill" data-bs-target="#cab-one-way" role="tab"
+                                        aria-controls="cab-one-way" aria-selected="true">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadiocab1" value="option1" checked>
+                                        <label class="form-check-label" for="inlineRadiocab1">Recherche</label>
+                                    </div>
+                                </div>
                             </div>
                             <!-- Nav tabs END -->
                         </div>
+
+                        <!-- Tab content START -->
+                        <div class="tab-content mt-0" id="pills-tabContent">
+                            <!-- One way tab START -->
+                            <div class="tab-pane fade show active" id="cab-one-way" role="tabpanel"
+                                aria-labelledby="cab-one-way-tab">
+                                <form class="row g-4 align-items-center" action="{{ route('trajets.search') }}"
+                                    method="GET">
+                                    @csrf
+
+                                    <div class="col-xl-10">
+                                        <div class="row g-4">
+                                            <!-- Pickup -->
+                                            <div class="col-md-6 col-xl-4">
+                                                <div class="form-size-lg">
+                                                    <label class="form-label">Départ</label>
+                                                    <select class="form-select js-choice" data-search-enabled="true"
+                                                        aria-label=".form-select-sm" name="point_depart">
+                                                        <option value="">Départ</option>
+                                                        @foreach ($points_depart as $point_depart)
+                                                            <option value="{{ $point_depart }}">{{ $point_depart }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <!-- Drop -->
+                                            <div class="col-md-6 col-xl-4">
+                                                <div class="form-size-lg">
+                                                    <label class="form-label">Destination</label>
+                                                    <select class="form-select js-choice" data-search-enabled="true"
+                                                        aria-label=".form-select-sm" name="destination">
+                                                        <option value="">Destination</option>
+                                                        @foreach ($destinations as $destination)
+                                                            <option value="{{ $destination }}">{{ $destination }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <!-- Date -->
+                                            <div class="col-md-6 col-xl-2">
+                                                <label class="form-label">Date de départ </label>
+                                                <input type="date" class="form-control form-control-lg"
+                                                    name="date_depart">
+                                            </div>
+
+                                            <!-- Time -->
+                                            <div class="col-md-6 col-xl-2">
+                                                <label class="form-label">Heure de
+                                                    départ</label>
+                                                <input type="time" class="form-control text-md-end"
+                                                    data-enableTime="true" data-noCalendar="true"
+                                                    placeholder="Heure de départ" name="heure_depart">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-2 d-grid mt-xl-auto">
+                                        <button type="submit" class="btn btn-lg btn-outline-dark mb-0">Rechercher</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- One way tab END -->
+                        </div>
+                        <!-- Tab content END -->
                     </div>
                     <!-- Booking from END -->
                 </div>
@@ -31,7 +105,6 @@
     <!-- =======================Titles START -->
     <section class="pt-6">
         <div class="container position-relative">
-
             <!-- Title and button START -->
             <div class="row">
                 <div class="col-12">
@@ -59,9 +132,8 @@
     <section class="pt-0">
         <div class="container" data-sticky-container>
             <div class="row">
-
                 <!-- Main content START -->
-                <div class="col-lg-12 col-xxl-9">
+                <div class="col-lg-12">
                     <div class="vstack gap-4">
 
                         @if ($trajets->isEmpty())
@@ -158,6 +230,7 @@
                                 </div>
                                 <!-- Cab item END -->
                             @endforeach
+
                             
                         @endif
                     </div>
