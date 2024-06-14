@@ -34,7 +34,12 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login', 'login')->name('login.store');
 });
+
+//LOGOUT ROUTE
 Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
+
+//TRAJETS SEARCH ROUTE
+Route::get('trajet', [TrajetController::class, 'search'])->name('trajets.search');
 
 Route::middleware('auth')->prefix('drive')->group(function (){
     //DRIVE ROUTE

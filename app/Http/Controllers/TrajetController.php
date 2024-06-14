@@ -139,6 +139,46 @@ class TrajetController extends Controller
         return back();
     }
 
+    /**
+     * Search Trips
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function search(Request $request): View
+    {
+        $point_depart = $request->input('point_depart');
+        $destination  = $request->input('destination');
+        $date_depart = $request->input('date_depart');
+        $heure_depart = $request->input('heure_depart');
+
+        $query = Trajet::query();
+
+        //application des filtres
+        if ($point_depart) {
+            $query->where('point_depart', $point_depart);
+        }
+
+        if ($destination) {
+            $query->where('destination', $destination);
+        }
+        
+        if ($date_depart) {
+            $query->whereDate('date_depart', '=', $date_depart);
+        }
+
+        if ($heure_depart) {
+            $query->whereTime('heure_depart','=', $heure_depart);
+        }
+
+        $trajets = $query->get();
+
+        $nombre_trajets = $trajets->count();
+
+
+        return view('trajets.resultats', compact(['trajets', 'nombre_trajets']));
+    }
+
     
     /**
      * Handle image upload and return the image path

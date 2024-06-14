@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    <!-- =======================
-                                                                                        Main Banner START -->
+    <!-- ======================= Main Banner START -->
     <section class="pt-0 pt-lg-5">
         <div class="container">
             <div class="row">
@@ -24,7 +23,7 @@
                             </div>
 
                             <!-- Card body START -->
-                            <form class="card-body form-control-border p-3 p-sm-4">
+                            <form class="card-body form-control-border p-3 p-sm-4" action="{{ route('trajets.search') }}" method="GET">
 
                                 <!-- Tabs content START -->
                                 <div class="tab-content my-4" id="pills-tabContent">
@@ -36,11 +35,11 @@
                                             <div class="col-md-6 position-relative">
                                                 <div class="form-fs-lg form-control-transparent">
                                                     <label class="form-label small">Départ</label>
-                                                    <select class="form-select js-choice" data-search-enabled="true">
+                                                    <select class="form-select js-choice" data-search-enabled="true" name="point_depart">
                                                         <option value="">Départ</option>
-                                                        <option>Douala</option>
-                                                        <option>Yaounde</option>
-                                                        <option>Graroua</option>
+                                                        @foreach ($points_depart as $point_depart)
+                                                            <option value="{{ $point_depart }}">{{ $point_depart }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
 
@@ -55,11 +54,11 @@
                                             <div class="col-md-6 text-md-end">
                                                 <div class="form-fs-lg form-control-transparent">
                                                     <label class="form-label small ms-3 ms-md-0 me-md-3">Destination</label>
-                                                    <select class="form-select js-choice" data-search-enabled="true">
+                                                    <select class="form-select js-choice" data-search-enabled="true" name="destination">
                                                         <option value="">Destination</option>
-                                                        <option>Douala</option>
-                                                        <option>Yaounde</option>
-                                                        <option>Graroua</option>
+                                                        @foreach ($destinations as $destination)
+                                                            <option value="{{ $destination }}">{{ $destination }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -68,8 +67,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-fs-lg form-control-transparent">
                                                     <label class="form-label small">Date de départ</label>
-                                                    <input type="text" class="form-control flatpickr"
-                                                        placeholder="Date de départ">
+                                                    <input type="date" class="form-control"
+                                                        placeholder="Date de départ" name="date_depart">
                                                 </div>
                                             </div>
 
@@ -78,9 +77,9 @@
                                                 <div class="form-fs-lg form-control-transparent">
                                                     <label class="form-label small ms-3 ms-md-0 me-md-3">Heure de
                                                         départ</label>
-                                                    <input type="text" class="form-control flatpickr text-md-end"
+                                                    <input type="time" class="form-control text-md-end"
                                                         data-enableTime="true" data-noCalendar="true"
-                                                        placeholder="Heure de départ">
+                                                        placeholder="Heure de départ" name="heure_depart">
                                                 </div>
                                             </div>
 
@@ -92,7 +91,7 @@
 
                                 <!-- Button -->
                                 <div class="d-grid">
-                                    <button class="btn btn-primary mb-0">Rechercher</button>
+                                    <button type="submit" class="btn btn-primary mb-0">Rechercher</button>
                                 </div>
 
                             </form>
@@ -104,11 +103,9 @@
             </div> <!-- Row END -->
         </div>
     </section>
-    <!-- =======================
-                                                                                        Main Banner END -->
+    <!-- ======================= Main Banner END -->
 
-    <!-- =======================
-                                                                                        Why Choose Us START -->
+    <!-- =======================  Why Choose Us START -->
     <section class="pt-0 pt-xl-5">
         <div class="container">
             <!-- Title -->
@@ -214,10 +211,10 @@
         </div>
     </section>
     <!-- =======================
-                                                                                        Why Choose Us END -->
+                                                                                                            Why Choose Us END -->
 
     <!-- =======================
-                                                                                        Action box START -->
+                                                                                                            Action box START -->
     <section class="pt-0 pt-lg-10">
         <div class="container position-relative">
             <!-- Mockup -->
@@ -291,10 +288,10 @@
         </div>
     </section>
     <!-- =======================
-                                                                                        Action box END -->
+                                                                                                            Action box END -->
 
     <!-- =======================
-                                                                                        Faqs START-->
+                                                                                                            Faqs START-->
     <section class="pt-0 pt-lg-5">
         <div class="container">
 
