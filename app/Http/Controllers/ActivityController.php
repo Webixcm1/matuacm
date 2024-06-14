@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ActivityLog;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,13 @@ class ActivityController extends Controller
     }
 
 
-    public function store(Request $request)
+    /**
+     * Save activity log in database
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function store(Request $request): JsonResponse
     {
         // Enregistrement d'une nouvelle activité
         $activity = ActivityLog::create($request->all());

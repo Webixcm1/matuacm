@@ -24,7 +24,12 @@ class TrajetController extends Controller
     {
         return view('trajets.create');
     }
-
+    /**
+     * Create new trips 
+     * 
+     * @param \App\Http\Requests\Trajets\CreateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(CreateRequest $request): RedirectResponse
     {
         $user = Auth::user();
