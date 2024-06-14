@@ -24,6 +24,7 @@
 
                             <!-- Card body START -->
                             <form class="card-body form-control-border p-3 p-sm-4" action="{{ route('trajets.search') }}" method="GET">
+                                @csrf
 
                                 <!-- Tabs content START -->
                                 <div class="tab-content my-4" id="pills-tabContent">

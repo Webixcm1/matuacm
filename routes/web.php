@@ -7,7 +7,6 @@ use App\Http\Controllers\TrajetController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ActivityController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Middleware\VerifyAccountMiddleware;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Drive\AccueilController;
 use App\Http\Controllers\Drive\SettingController;
@@ -38,8 +37,10 @@ Route::controller(LoginController::class)->group(function () {
 //LOGOUT ROUTE
 Route::post('logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-//TRAJETS SEARCH ROUTE
+//TRAJETS SEARCH, LIST & SHOW ROUTE
 Route::get('trajet', [TrajetController::class, 'search'])->name('trajets.search');
+Route::get('covoiturage', [TrajetController::class, 'listTrips'])->name('trips.list');
+Route::get('covoiturage/{trajet}', [TrajetController::class, 'showTrip'])->name('trips.show');
 
 Route::middleware('auth')->prefix('drive')->group(function (){
     //DRIVE ROUTE
