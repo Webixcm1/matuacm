@@ -68,4 +68,5 @@ Route::middleware('auth')->prefix('drive')->group(function (){
     Route::controller(ActivityController::class)->group(function () {
         Route::post('settings', 'store')->name('activities.store');
     });
+    
 });

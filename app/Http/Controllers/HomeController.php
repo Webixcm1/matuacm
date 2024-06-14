@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    //TODO:implementer la recherche des trajets a la page d'accueil
     /**
      * @return Illuminate\Http\Request
      */

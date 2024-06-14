@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('activity_logs', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('user_id')->nullable()->constrained('users');
+            $table->string('session_id')->nullable();
             $table->string('ip_address', 45)->nullable();
             $table->string('browser')->nullable();
             $table->string('os')->nullable();
-            $table->string('action')->nullable();
-            $table->text('details')->nullable();
+            $table->string('device')->nullable();
             $table->timestamps();
         });
     }

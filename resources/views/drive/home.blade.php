@@ -110,7 +110,7 @@
                                                     {{ $trajet->destination }}</a>
                                             </h5>
                                             <small><i class="bi bi-calendar me-2"></i>{{ $trajet->date_depart }} à
-                                                {{ $trajet->heure_depart }}</small>
+                                                {{ $trajet->heure_depart->format('d M Y H:00') }}</small>
                                             <small class="mt-1">
                                                 @if ($trajet->status)
                                                     <a href="#" class="badge text-bg-success"><i

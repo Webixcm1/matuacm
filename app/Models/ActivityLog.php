@@ -13,11 +13,11 @@ class ActivityLog extends Model
 
     protected $fillable = [
         'user_id',
+        'session_id',
         'ip_address',
         'browser',
         'os',
-        'action',
-        'details',
+        'device',
     ];
 
     public function user(): BelongsTo

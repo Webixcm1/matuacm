@@ -31,6 +31,7 @@ class User extends Authenticatable
         'avatar',
         'status',
         'verified_at',
+        'last_active_at',
     ];
 
     /**

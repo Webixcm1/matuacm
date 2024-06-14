@@ -6,6 +6,7 @@ use Closure;
 use App\Models\ActivityLog;
 use Jenssegers\Agent\Agent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class ActivityLogMiddleware
@@ -19,26 +20,33 @@ class ActivityLogMiddleware
     {
         $response = $next($request);
 
-        if ($request->user()) {
-            $user_id = $request->user()->id;
-        } else {
-            $user_id = null;
+        // Si l'utilisateur est authentifié
+        if (Auth::check()) {
+            $user = Auth::user();
+            $session_id = session()->getId();
+
+            $existingLog = ActivityLog::where('user_id', $user->id)
+                ->where('session_id', $session_id)
+                ->first();
+
+            if (!$existingLog) {
+                $agent = new Agent();
+                $ip = $request->ip();
+                $browser = $agent->browser();
+                $os = $agent->platform();
+                $device = $agent->device();
+
+                // Enregistrez les informations de connexion
+                ActivityLog::create([
+                    'user_id' => $user->id,
+                    'session_id' => $session_id,
+                    'ip_address' => $ip,
+                    'browser' => $browser,
+                    'os' => $os,
+                    'device' => $device,
+                ]);
+            }
         }
-
-        $agent = new Agent();
-        $ip = $request->ip();
-        $browser = $agent->browser();
-        $os = $agent->platform();
-        $action = $request->path();
-        $method = $request->method();
-
-        ActivityLog::create([
-            'user_id' => $user_id,
-            'ip_address' => $ip,
-            'browser' => $browser,
-            'os' => $os,
-            'action' => "{$method} {$action}",
-        ]);
 
         return $response;
     }

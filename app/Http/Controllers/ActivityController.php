@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
+    //TODO: implementer la deconnection d'un device ou pour tout les devices sauf celui active.
     public function displayView(): View
     {
         $user_id = auth()->id();

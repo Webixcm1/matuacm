@@ -204,7 +204,7 @@
 
                                 <!-- Card header -->
                                 <div class="card-header border-bottom">
-                                    <h5 class="card-header-title">Active Logs</h5>
+                                    <h5 class="card-header-title">Journal d'activité</h5>
                                 </div>
 
                                 <!-- Card body START -->
@@ -216,10 +216,13 @@
                                             <!-- Table head -->
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th scope="col" class="border-0 rounded-start">Ip</th>
-                                                    <th scope="col" class="border-0">Navigateur</th>
-                                                    <th scope="col" class="border-0">Sysème d'exploitation</th>
-                                                    <th scope="col" class="border-0 rounded-end">Action</th>
+                                                    <th scope="col" class="border-0 rounded-start text-center">Ip</th>
+                                                    <th scope="col" class="border-0 text-center">Navigateur</th>
+                                                    <th scope="col" class="border-0 text-center">Sysème d'exploitation
+                                                    </th>
+                                                    <th scope="col" class="border-0 text-center">Appareil</th>
+                                                    <th scope="col" class="border-0 text-center">Date</th>
+                                                    <th scope="col" class="border-0 text-center">Action</th>
                                                 </tr>
                                             </thead>
 
@@ -234,13 +237,19 @@
                                                     <!-- Table rows -->
                                                     @foreach ($activities as $activity)
                                                         <tr>
-                                                            <td>{{ $activity->ip_address }}</td>
-                                                            <td>{{ $activity->browser }}</td>
-                                                            <td>{{ $activity->os }}</td>
-                                                            <td>
-                                                                <button
-                                                                    class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign
-                                                                    out</button>
+                                                            <td class="text-center">{{ $activity->ip_address }}</td>
+                                                            <td class="text-center">{{ $activity->browser }}</td>
+                                                            <td class="text-center">{{ $activity->os }}</td>
+                                                            <td class="text-center">{{ $activity->device }}</td>
+                                                            <td class="text-center">
+                                                                {{ $activity->created_at->format('d M Y') }}</td>
+                                                            <td class="text-center">
+                                                                <form action="#" method="POST">
+                                                                    @csrf
+                                                                    <button type="submit"
+                                                                        class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Se
+                                                                        Déconnecter</button>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -251,6 +260,14 @@
                                         {{ $activities->links() }}
                                     </div>
                                     <!-- Table END -->
+
+                                    <!-- Active session -->
+                                    <form class="mt-4">
+                                        <h6 class="mb-0">Active sessions</h6>
+                                        <p class="mb-2">Selecting "Sign out" will sign you out from all devices except
+                                            this one. This can take up to 10 minutes.</p>
+                                        <button class="btn btn-sm btn-danger mb-0">Sign Out of all devices</button>
+                                    </form>
                                 </div>
                                 <!-- Card body END -->
                             </div>
