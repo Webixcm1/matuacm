@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/choices/css/choices.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/flatpickr/css/flatpickr.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/nouislider/nouislider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/tiny-slider/tiny-slider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/glightbox/css/glightbox.css') }}">
 
     <!-- Theme CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
@@ -77,7 +79,9 @@
                                 href="{{ route('about') }}">A Propos</a> </li>
 
                         <!-- Nav item -->
-                        <li class="nav-item"> <a class="nav-link" href="#">Covoiturage</a> </li>
+                        <li class="nav-item"> <a
+                                class="nav-link {{ Request::path() == 'covoiturage' ? 'active' : '' }}"
+                                href=" {{ route('trips.list') }} ">Covoiturage</a> </li>
 
                         <!-- Nav item -->
                         <li class="nav-item"> <a class="nav-link" href="#">Service Routier</a> </li>
@@ -100,8 +104,8 @@
                             aria-expanded="false">
                             @auth
                                 <div>
-                                    <img class="avatar-img rounded-circle shadow"
-                                        src="{{ asset(Auth::user()->avatar) }}" alt="avatar">
+                                    <img class="avatar-img rounded-circle shadow" src="{{ asset(Auth::user()->avatar) }}"
+                                        alt="avatar">
                                 </div>
                             @else
                                 <i class="fa-solid fa-user rounded-2" style="font-size: 20px; color:dodgerblue"></i>
@@ -147,7 +151,7 @@
     <!-- **************** MAIN CONTENT START **************** -->
     <main>
         @yield('content')
-         @include('notify::components.notify')
+        @include('notify::components.notify')
     </main>
     <!-- **************** MAIN CONTENT END **************** -->
 
@@ -188,7 +192,7 @@ Footer START -->
                                         href="{{ route('about') }}">A
                                         Propos</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
-                                        href="#">Covoiturage</a></li>
+                                        href="{{ route('trips.list') }}">Covoiturage</a></li>
                                 <li class="nav-item"><a class="nav-link text-body-secondary"
                                         href="{{ route('contact.index') }}">Contact</a></li>
                             </ul>
@@ -290,7 +294,10 @@ Footer START -->
 
     <!-- Vendors -->
     <script src="{{ asset('assets/vendor/choices/js/choices.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/sticky-js/sticky.min.js')}}"></script>
+    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.js')}}"></script>
     <script src="{{ asset('assets/vendor/flatpickr/js/flatpickr.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/tiny-slider/tiny-slider.js')}}"></script>
     <script src="{{ asset('assets/vendor/nouislider/nouislider.min.js') }}"></script>
 
     <!-- ThemeFunctions -->
