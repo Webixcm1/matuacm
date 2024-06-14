@@ -64,5 +64,8 @@ Route::middleware('auth')->prefix('drive')->group(function (){
         Route::patch('settings/{user}/updatePassword', 'updatePassword')->name('settings.update.password');
     });
 
-    Route::post('/activities', [ActivityController::class, 'store']);
+    //ACTIVITY ROUTE
+    Route::controller(ActivityController::class)->group(function () {
+        Route::post('settings', 'store')->name('activities.store');
+    });
 });

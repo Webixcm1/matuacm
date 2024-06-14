@@ -216,53 +216,39 @@
                                             <!-- Table head -->
                                             <thead class="table-light">
                                                 <tr>
-                                                    <th scope="col" class="border-0 rounded-start">Browser</th>
-                                                    <th scope="col" class="border-0">IP</th>
-                                                    <th scope="col" class="border-0">Time</th>
+                                                    <th scope="col" class="border-0 rounded-start">Ip</th>
+                                                    <th scope="col" class="border-0">Navigateur</th>
+                                                    <th scope="col" class="border-0">Sysème d'exploitation</th>
                                                     <th scope="col" class="border-0 rounded-end">Action</th>
                                                 </tr>
                                             </thead>
 
                                             <!-- Table body START -->
                                             <tbody>
-                                                <!-- Table row -->
-                                                <tr>
-                                                    <td> Chrome On Window </td>
-                                                    <td> 173.238.198.108 </td>
-                                                    <td> 12 Nov 2021 </td>
-                                                    <td> <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign
-                                                            out</button> </td>
-                                                </tr>
-
-                                                <!-- Table row -->
-                                                <tr>
-                                                    <td> Mozilla On Window </td>
-                                                    <td> 107.222.146.90 </td>
-                                                    <td> 08 Nov 2021 </td>
-                                                    <td> <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign
-                                                            out</button> </td>
-                                                </tr>
-
-                                                <!-- Table row -->
-                                                <tr>
-                                                    <td> Chrome On iMac </td>
-                                                    <td> 231.213.125.55 </td>
-                                                    <td> 06 Nov 2021 </td>
-                                                    <td> <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign
-                                                            out</button> </td>
-                                                </tr>
-
-                                                <!-- Table row -->
-                                                <tr>
-                                                    <td>Mozilla On Window </td>
-                                                    <td> 37.242.105.138 </td>
-                                                    <td> 02 Nov 2021 </td>
-                                                    <td> <button class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign
-                                                            out</button> </td>
-                                                </tr>
+                                                <!-- Vérifiez si des activités existent -->
+                                                @if ($activities->isEmpty())
+                                                    <tr>
+                                                        <td colspan="4" class="text-center">No activity logs found</td>
+                                                    </tr>
+                                                @else
+                                                    <!-- Table rows -->
+                                                    @foreach ($activities as $activity)
+                                                        <tr>
+                                                            <td>{{ $activity->ip_address }}</td>
+                                                            <td>{{ $activity->browser }}</td>
+                                                            <td>{{ $activity->os }}</td>
+                                                            <td>
+                                                                <button
+                                                                    class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Sign
+                                                                    out</button>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
                                             </tbody>
                                             <!-- Table body END -->
                                         </table>
+                                        {{ $activities->links() }}
                                     </div>
                                     <!-- Table END -->
                                 </div>
