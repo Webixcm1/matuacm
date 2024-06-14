@@ -67,6 +67,7 @@ Route::middleware('auth')->prefix('drive')->group(function (){
     //ACTIVITY ROUTE
     Route::controller(ActivityController::class)->group(function () {
         Route::post('settings', 'store')->name('activities.store');
+        Route::post('disconnect/{deviceId}', 'disconnectDevice')->name('disconnect.device');
     });
     
 });

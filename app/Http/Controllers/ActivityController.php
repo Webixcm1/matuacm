@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ActivityLog;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
@@ -24,5 +25,27 @@ class ActivityController extends Controller
         // Enregistrement d'une nouvelle activité
         $activity = ActivityLog::create($request->all());
         return response()->json($activity, 201);
+    }
+
+    /**
+     * Déconnecte un utilisateur d'un dispositif spécifique.
+     *
+     * @param string $deviceId L'ID du dispositif à déconnecter.
+     * @return \Illuminate\Http\Response
+     */
+    public function disconnectDevice($deviceId): RedirectResponse
+    {
+        $activity = ActivityLog::find($deviceId);
+
+        //verifier si l'activite existe et si l'utilisateur est autorise
+        if (!$activity || $activity->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        //suppression de la session_id de l'activitéselectionne
+        $activity->update(['session_id' => null]);
+
+        emotify('success', 'Déconnecté du dispositif avec succès.');
+        return redirect()->route('home');
     }
 }

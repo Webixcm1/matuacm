@@ -244,7 +244,7 @@
                                                             <td class="text-center">
                                                                 {{ $activity->created_at->format('d M Y') }}</td>
                                                             <td class="text-center">
-                                                                <form action="#" method="POST">
+                                                                <form action="{{ route('disconnect.device', $activity->id) }}" method="POST">
                                                                     @csrf
                                                                     <button type="submit"
                                                                         class="btn btn-sm btn-danger-soft me-1 mb-1 mb-md-0">Se
@@ -262,12 +262,12 @@
                                     <!-- Table END -->
 
                                     <!-- Active session -->
-                                    <form class="mt-4">
+                                    {{-- <form class="mt-4">
                                         <h6 class="mb-0">Active sessions</h6>
                                         <p class="mb-2">Selecting "Sign out" will sign you out from all devices except
                                             this one. This can take up to 10 minutes.</p>
                                         <button class="btn btn-sm btn-danger mb-0">Sign Out of all devices</button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                                 <!-- Card body END -->
                             </div>
