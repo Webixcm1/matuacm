@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Middleware\ActivityLog;
+use App\Http\Middleware\ActivityLogMiddleware;
 use App\Http\Middleware\CheckVerifyAccountMiddleware;
-use App\Http\Middleware\VerifyAccountMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -13,6 +14,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+
+        $middleware->append(ActivityLogMiddleware::class);
 
         $middleware->alias([
             'checkVerify' => CheckVerifyAccountMiddleware::class,

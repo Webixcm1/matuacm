@@ -14,6 +14,7 @@ class TrajetController extends Controller
 {
     //TODO: Envoyer un message a tous les passagers apres la publication d'un trajets
     //TODO: Envoyer un message a l'utilisateur apres verification de son compte
+    //TODO: mettre un bouton pour demarrer un trajet. lorsqu'un trajet est lancé on doit estimer le temps de fin
 
     /**
      * affichage de la vue de creation d'un trajet
@@ -23,7 +24,12 @@ class TrajetController extends Controller
     {
         return view('trajets.create');
     }
-
+    /**
+     * Create new trips 
+     * 
+     * @param \App\Http\Requests\Trajets\CreateRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function store(CreateRequest $request): RedirectResponse
     {
         $user = Auth::user();
@@ -136,6 +142,46 @@ class TrajetController extends Controller
 
         emotify('success', "Le status de votre trajet a été mis à jour avec succès.");
         return back();
+    }
+
+    /**
+     * Search Trips
+     * 
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function search(Request $request): View
+    {
+        $point_depart = $request->input('point_depart');
+        $destination  = $request->input('destination');
+        $date_depart = $request->input('date_depart');
+        $heure_depart = $request->input('heure_depart');
+
+        $query = Trajet::query();
+
+        //application des filtres
+        if ($point_depart) {
+            $query->where('point_depart', $point_depart);
+        }
+
+        if ($destination) {
+            $query->where('destination', $destination);
+        }
+        
+        if ($date_depart) {
+            $query->whereDate('date_depart', '=', $date_depart);
+        }
+
+        if ($heure_depart) {
+            $query->whereTime('heure_depart','=', $heure_depart);
+        }
+
+        $trajets = $query->get();
+
+        $nombre_trajets = $trajets->count();
+
+
+        return view('trajets.resultats', compact(['trajets', 'nombre_trajets']));
     }
 
     

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Trajet;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -12,6 +12,13 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        return view('welcome');
+        // Récupérer tous les trajets
+        $trajets = Trajet::all();
+    
+        // Préparer les options uniques pour point de départ et destination
+        $points_depart = $trajets->unique('point_depart')->pluck('point_depart');
+        $destinations = $trajets->unique('destination')->pluck('destination');
+    
+        return view('welcome', compact('points_depart', 'destinations'));
     }
 }
