@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="THConsulting">
-    <meta name="description" content="Matuacm - Première plateforme de covoiturage au Cameroun">
+    <meta name="description" content="Mutocm - Première plateforme de covoiturage au Cameroun">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
@@ -168,14 +168,14 @@ Footer START -->
                     <a href="{{ route('index') }}"> <!-- //TODO:mettre le logo sur le footer -->
                         {{-- <img class="h-40px" src="{{ asset('assets/images/logo-light.svg') }}" alt="logo"> --}}
                     </a>
-                    <p class="my-3 text-body-secondary">Matuacm, une plateforme innovante, rend le covoiturage entre
+                    <p class="my-3 text-body-secondary">Mutocm, une plateforme innovante, rend le covoiturage entre
                         particuliers facile et convivial. Elle relie les conducteurs disposant de places libres à des
                         passagers partageant la même destination, offrant une solution de déplacement écologique et
                         économique. </p>
                     <p class="mb-2"><a href="#" class="text-body-secondary text-primary-hover"><i
                                 class="bi bi-telephone me-2"></i>+237 655 299168 / +237 653 335 285</a> </p>
                     <p class="mb-0"><a href="#" class="text-body-secondary text-primary-hover"><i
-                                class="bi bi-envelope me-2"></i>contact@matua.cm</a></p>
+                                class="bi bi-envelope me-2"></i>contact@mutocm.cm</a></p>
                 </div>
                 <!-- Widget 1 END -->
 

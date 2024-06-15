@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Verification de compte - Matuacm - Première plateforme de covoiturage au Cameroun
+    Verification de compte - Mutocm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @push('css')

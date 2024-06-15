@@ -4,12 +4,12 @@
 <!-- Mirrored from booking.webestica.com/sign-up.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Apr 2024 10:41:44 GMT -->
 
 <head>
-    <title>Inscription - Matuacm - Première plateforme de covoiturage au Cameroun</title>
+    <title>Inscription - Mutocm - Première plateforme de covoiturage au Cameroun</title>
 
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="matuacm">
+    <meta name="author" content="Mutocm">
     <meta name="description" content="">
 
     <!-- Google Font -->
