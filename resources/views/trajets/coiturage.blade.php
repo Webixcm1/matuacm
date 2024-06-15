@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Covoiturage - Matuacm - Première plateforme de covoiturage au Cameroun
+    Covoiturage - Mutocm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')

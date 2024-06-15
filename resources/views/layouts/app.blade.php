@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Dashboard Conducteur - Matuacm - Première plateforme de covoiturage au Cameroun
+    Dashboard Conducteur - Mutocm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @push('css')
@@ -73,7 +73,7 @@
             @if (Auth::user()->status == false)
                 <div class="alert alert-info" role="alert">
                     <i class="bi bi-exclamation-octagon-fill me-2"></i> Veuillez vérifier votre compte pour pouvoir
-                    publier un trajet sur Matuacm. <a href="{{ route('verify-account') }}"
+                    publier un trajet sur Mutocm. <a href="{{ route('verify-account') }}"
                         class="text-info"><strong>Vérifiez-le
                             maintenant</strong></a>.
                 </div>
