@@ -80,7 +80,7 @@
 
     <!-- =======================
                                     Team START -->
-    <section class="pt-0">
+    {{-- <section class="pt-0">
         <div class="container">
             <!-- Title -->
             <div class="row mb-4">
@@ -206,7 +206,7 @@
             </div>
             <!-- Team END -->
         </div>
-    </section>
+    </section> --}}
     <!-- =======================
                                     Team END -->
 @endsection
