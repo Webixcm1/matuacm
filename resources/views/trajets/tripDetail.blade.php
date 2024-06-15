@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    {{ $trajet->point_depart }} - {{ $trajet->destination }} - Matuacm - Première plateforme de covoiturage au Cameroun
+    {{ $trajet->point_depart }} - {{ $trajet->destination }} - Mutocm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')

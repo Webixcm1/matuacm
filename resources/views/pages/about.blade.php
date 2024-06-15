@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    A Propos - Matuacm - Première plateforme de covoiturage au Cameroun
+    A Propos - Mutocm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
             <div class="row mb-5">
                 <div class="col-xl-10 mx-auto text-center">
                     <!-- Title -->
-                    <h1>Pour une découverte du monde, Matuacm vous guide.</h1>
+                    <h1>Pour une découverte du monde, Mutocm vous guide.</h1>
                     <p class="lead">
                         Partagez des trajets empreints de convivialité. Soyez surpris sans retenue.
                         Rejoignez-nous et découvrez une expérience unique de covoiturage.
@@ -50,24 +50,24 @@
             <div class="row mb-4 mb-md-5">
                 <div class="col-md-10 mx-auto">
                     <h3 class="mb-4">A Propos</h3>
-                    <p class="fw-bold">Matuacm tire son nom de la langue Yemba, où "Matua" signifie voiture. C'est une
+                    <p class="fw-bold">Mutocm tire son nom de la langue <strong>OSHIE</strong>, où "Muto" signifie voiture. C'est une
                         plateforme 100% camerounaise qui facilite le covoiturage entre particuliers. Son
                         objectif est de répondre aux besoins de déplacement de manière écologique, économique et conviviale.
                     </p>
                     <p class="mb-0">En mettant en relation des conducteurs effectuant un trajet avec des places libres et
-                        des passagers partageant la même destination, Matuacm encourage l'utilisation efficace des
+                        des passagers partageant la même destination, Mutocm encourage l'utilisation efficace des
                         véhicules et réduit ainsi l'empreinte carbone associée aux déplacements individuels.
                         Grâce à une interface conviviale, les utilisateurs peuvent facilement rechercher des trajets
                         disponibles en spécifiant leur point de départ, leur destination et la date de leur déplacement. Ils
                         peuvent également réserver des places dans les trajets qui leur conviennent, en fonction de la
                         disponibilité des conducteurs.
-                        Matuacm propose également un système de paiement en ligne sécurisé, des avis et évaluations pour
+                        Mutocm propose également un système de paiement en ligne sécurisé, des avis et évaluations pour
                         assurer la fiabilité des trajets, ainsi qu'un service client réactif pour répondre aux questions et
                         aux problèmes rencontrés par les utilisateurs.
                         En encourageant le covoiturage, Matua.cm favorise la création de liens sociaux, réduit les coûts de
                         déplacement pour les utilisateurs et contribue à la préservation de l'environnement en diminuant les
                         émissions de CO2 liées aux déplacements individuels.
-                        Avec son engagement en faveur de la durabilité, de la praticité et de la convivialité, Matuacm est
+                        Avec son engagement en faveur de la durabilité, de la praticité et de la convivialité, Mutocm est
                         bien plus qu'une simple plateforme de covoiturage; c'est un partenaire de confiance pour des
                         déplacements plus intelligents et plus durables.
                     </p>

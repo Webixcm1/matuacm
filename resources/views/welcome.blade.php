@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Accueil - Matuacm - Première plateforme de covoiturage au Cameroun
+    Accueil - Mutocm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')
@@ -112,7 +112,7 @@
             <!-- Title -->
             <div class="row mb-3 mb-sm-4">
                 <div class="col-12 text-center">
-                    <h2>Pourquoi choisir <strong>Matuacm</strong>?</h2>
+                    <h2>Pourquoi choisir <strong>Mutocm</strong>?</h2>
                 </div>
             </div>
 
@@ -140,7 +140,7 @@
                         <div class="icon-lg bg-success bg-opacity-10 text-success rounded-circle mb-4"><i
                                 class="bi bi-record-btn-fill fs-5"></i></div>
                         <h5>Économies Significatives</h5>
-                        <p class="mb-0"> Matuacm permet de partager les coûts de déplacement, ce qui rend les voyages
+                        <p class="mb-0"> Mutocm permet de partager les coûts de déplacement, ce qui rend les voyages
                             plus abordables pour tous les passagers. Les conducteurs peuvent également réduire leurs frais
                             de carburant en partageant les trajets avec d'autres.</p>
                     </div>
@@ -155,7 +155,7 @@
                         <div class="icon-lg bg-warning bg-opacity-15 text-warning rounded-circle mb-4"><i
                                 class="bi bi-shield-fill-check fs-5"></i></div>
                         <h5>Sécurité et Confiance </h5>
-                        <p class="mb-0">Matuacm met un fort accent sur la sécurité avec des fonctionnalités telles que la
+                        <p class="mb-0">Mutocm met un fort accent sur la sécurité avec des fonctionnalités telles que la
                             vérification de l'identité, des antécédents et des coordonnées des utilisateurs. Les avis et
                             évaluations permettent de choisir des conducteurs et des passagers de confiance.</p>
                     </div>
@@ -170,7 +170,7 @@
                         <div class="icon-lg bg-danger bg-opacity-10 text-danger rounded-circle mb-4"><i
                                 class="fa-solid fa-flag fs-5"></i></div>
                         <h5>Assistance Routière </h5>
-                        <p class="mb-0">En cas de panne ou d'accident pendant le trajet, Matuacm offre un service
+                        <p class="mb-0">En cas de panne ou d'accident pendant le trajet, Mutocm offre un service
                             d'assistance routière, avec la possibilité de contacter les services d'urgence, assurant ainsi
                             une tranquillité d'esprit pour tous les participants.</p>
                     </div>
@@ -185,7 +185,7 @@
                         <div class="icon-lg bg-orange bg-opacity-10 text-orange rounded-circle mb-4"><i
                                 class="fa-solid fa-headset fs-5"></i></div>
                         <h5>Service Client Réactif</h5>
-                        <p class="mb-0">Matuacm propose un service client efficace et réactif pour répondre aux questions
+                        <p class="mb-0">Mutocm propose un service client efficace et réactif pour répondre aux questions
                             et résoudre les problèmes des utilisateurs, garantissant une expérience utilisateur positive.
                         </p>
                     </div>
@@ -200,7 +200,7 @@
                         <div class="icon-lg bg-info bg-opacity-10 text-info rounded-circle mb-4"><i
                                 class="fa-solid fa-dollar fs-5"></i></div>
                         <h5>Paiement Sécurisé</h5>
-                        <p class="mb-0">Le système de paiement en ligne sécurisé de Matuacm facilite les transactions
+                        <p class="mb-0">Le système de paiement en ligne sécurisé de Mutocm facilite les transactions
                             entre les conducteurs et les passagers, garantissant que les paiements sont effectués de manière
                             sûre et fiable.</p>
                     </div>
@@ -220,7 +220,7 @@
         <div class="container position-relative">
             <!-- Mockup -->
             <div class="position-absolute bottom-0 end-0 z-index-99 me-0 d-none d-lg-block">
-                <img src="{{ asset('assets/images/bg/img/car.png') }}" class="h-400px py-3" alt="matuacm">
+                <img src="{{ asset('assets/images/bg/img/car.png') }}" class="h-400px py-3" alt="Mutocm">
             </div>
 
             <div class="row">
@@ -256,9 +256,9 @@
                             <!-- Content START -->
                             <div class="col-lg-7">
                                 <!-- Title -->
-                                <h3>Embarquez pour des histoires inoubliables avec Matuacm</h3>
+                                <h3>Embarquez pour des histoires inoubliables avec Mutocm</h3>
 
-                                <p class="mb-2">Avec Matuacm, chaque trajet est une opportunité de rencontrer des
+                                <p class="mb-2">Avec Mutocm, chaque trajet est une opportunité de rencontrer des
                                     personnes fascinantes. Partagez votre route et créez des souvenirs avec des compagnons
                                     de voyage venus de tous horizons. Découvrez une expérience unique grâce au covoiturage.
                                 </p>
@@ -309,14 +309,14 @@
                                 <button class="accordion-button fw-bold rounded collapsed pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true"
                                     aria-controls="collapse-1">
-                                    Qu'est-ce que Matuacm ?
+                                    Qu'est-ce que Mutocm ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-1" class="accordion-collapse collapse show" aria-labelledby="heading-1"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    Matuacm est une plateforme en ligne qui facilite le covoiturage entre particuliers.
+                                    Mutocm est une plateforme en ligne qui facilite le covoiturage entre particuliers.
                                     Elle permet aux conducteurs ayant des places libres dans leur véhicule de les partager
                                     avec des passagers souhaitant se rendre à la même destination.
                                 </div>
@@ -329,7 +329,7 @@
                                 <button class="accordion-button fw-bold rounded collapsed pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-2" aria-expanded="false"
                                     aria-controls="collapse-2">
-                                    Comment rechercher un trajet sur Matuacm ?
+                                    Comment rechercher un trajet sur Mutocm ?
                                 </button>
                             </h6>
                             <!-- Body -->
@@ -397,7 +397,7 @@
                             <div id="collapse-5" class="accordion-collapse collapse" aria-labelledby="heading-5"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    Matuacm propose un système de paiement en ligne sécurisé. Les passagers paient leur
+                                    Mutocm propose un système de paiement en ligne sécurisé. Les passagers paient leur
                                     place en ligne lors de la réservation, et les conducteurs reçoivent les paiements
                                     directement sur leur compte après la réalisation du trajet.
                                 </div>
@@ -410,14 +410,14 @@
                                 <button class="accordion-button fw-bold collapsed rounded pe-5" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-6" aria-expanded="false"
                                     aria-controls="collapse-6">
-                                    Quelles mesures de sécurité sont en place sur Matuacm ?
+                                    Quelles mesures de sécurité sont en place sur Mutocm ?
                                 </button>
                             </h6>
                             <!-- Body -->
                             <div id="collapse-6" class="accordion-collapse collapse" aria-labelledby="heading-6"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    Matuacm prend la sécurité très au sérieux. Nous proposons des vérifications d'identité,
+                                    Mutocm prend la sécurité très au sérieux. Nous proposons des vérifications d'identité,
                                     des antécédents et des coordonnées pour les utilisateurs. Les avis et évaluations
                                     permettent également de choisir des conducteurs et des passagers de confiance.
                                 </div>
@@ -456,7 +456,7 @@
                             <div id="collapse-8" class="accordion-collapse collapse" aria-labelledby="heading-8"
                                 data-bs-parent="#accordionFaq">
                                 <div class="accordion-body mt-3 pb-0">
-                                    En cas de problème pendant le trajet, Matuacm offre un service d'assistance routière.
+                                    En cas de problème pendant le trajet, Mutocm offre un service d'assistance routière.
                                     Vous pouvez également contacter notre service client pour obtenir de l'aide.
                                 </div>
                             </div>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Resultat Recherche - Matuacm - Première plateforme de covoiturage au Cameroun
+    Resultat Recherche - Mutocm - Première plateforme de covoiturage au Cameroun
 @endsection
 
 @section('content')
